@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartGen Louvain-la-Neuve</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .intervenants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .intervenant-card {
+            background: #2a2a2a;
+            border: 2px solid #333;
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        .intervenant-card:hover {
+            transform: translateY(-5px);
+            border-color: #FFF700;
+            box-shadow: 0 10px 30px rgba(255, 247, 0, 0.1);
+        }
+        .intervenant-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid #FFF700;
+            background: #444; /* Fond par défaut si pas d'image */
+        }
+        .intervenant-card h3 {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .intervenant-card p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#accueil">Accueil</a>
+            <a href="#team">Team</a>
+            <a href="#actualites">Actualités</a>
+            <a href="#events">Events</a>
+            <a href="#intervenants">Intervenants</a>
+            <a href="#photos">Photos</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="accueil" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <img src="logo-startgen-lln.png" alt="StartGen LLN" class="hero-logo">
+            <h1><span class="yellow-text">StartGen Louvain-la-Neuve</span></h1>
+            <div class="hero-buttons">
+                <a href="#actualites" class="btn btn-white">Actualités du StartGen &rarr;</a>
+                <a href="#candidature" class="btn btn-white">Postule pour notre équipe ! &rarr;</a>
+                <a href="#contact" class="btn btn-white">Nos contacts ! &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section id="team" class="about-section">
+        <div class="container">
+            <h2 class="yellow-text">About us</h2>
+            <p>Nous faisons partie de l'ASBL "Les Jeunes Entreprises" (LJE).<br>
+            Notre objectif : donner le goût d'entreprendre aux jeunes en région louvaniste. Le projet est encore jeune, mais plein d'ambition : créer une véritable communauté étudiante tournée vers l'avenir, l'audace et l'impact.</p>
+        </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="quote-section">
+        <div class="container">
+            <p class="quote">"Une aventure entrepreneuriale lancée par des étudiants, pour les étudiants."</p>
+        </div>
+    </section>
+
+    <!-- UNE INITIATIVE DES LJE -->
+    <section class="initiative-section">
+        <div class="container initiative-grid">
+            <div class="initiative-logo">
+                <img src="logo-startgen-lln.png" alt="StartGen LLN" class="initiative-logo-img">
+            </div>
+            <div class="initiative-text">
+                <h2>Une initiative de LJE</h2>
+                <p>En 2025, LJE (Les Jeunes Entreprises) décident de lancer les différentes StartGen, chacune est indépendante des autres mais nous poursuivons tous le même objectif : promouvoir l'esprit d'entreprendre chez les jeunes de notre région.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOUVAIN-LA-NEUVE SECTION -->
+    <section class="city-section">
+        <div class="city-overlay">
+            <div class="city-content">
+                <h2>Louvain-la-Neuve</h2>
+                <p>Le projet StartGen existe dans de nombreuses villes telles que Liège, Mons, Namur, Louvain-La-Neuve, etc.</p>
+            </div>
+        </div>
+        <div class="city-image-container">
+            <img src="lln-ville.jpg" alt="Vue aérienne de Louvain-la-Neuve" class="city-image">
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ACTUALITÉS DU STARTGEN -->
+    <!-- ========================================== -->
+    <section id="actualites" class="actualites-section">
+        <div class="container">
+            <div class="actu-banner">
+                <div class="actu-banner-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <div class="actu-banner-text">
+                    <h2>Actualités du StartGen</h2>
+                    <p>Découvre nos dernières nouvelles et événements à venir !</p>
+                </div>
+            </div>
+
+            <div class="actu-grid" style="grid-template-columns: 1fr; max-width: 600px; margin: 0 auto;">
+                <!-- Carte 1 : Événement Brasse-Temps -->
+                <div class="actu-card actu-card-event">
+                    <div class="actu-card-badge">
+                        <i class="fas fa-calendar-star"></i> Événement
+                    </div>
+                    <div class="actu-card-content">
+                        <div class="actu-card-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Event Brasse-Temps</h3>
+                        <p>Interview.</p>
+                        <div class="actu-card-date">
+                            <i class="fas fa-clock"></i>
+                            <span>14 Octobre 2026</span>
+                        </div>
+                        <a href="#contact" class="btn btn-inscription">Contacte-nous pour plus d'infos ! &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ÉVÉNEMENTS -->
+    <section id="events" class="events-section">
+        <div class="container">
+            <h2>Nos événements à venir :</h2>
+            <p class="events-intro">Au sein de StartGen Louvain-la-Neuve, nous concevons des événements qui rassemblent, inspirent et connectent nos intervenants aux jeunes talents. Rencontres d'entrepreneurs, conférences inspirantes, ateliers pratiques ou soirées exclusives : chaque moment est pensé pour éveiller l'esprit d'initiative et donner aux jeunes l'élan d'entreprendre.</p>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h3>Event Brasse-Temps</h3>
+                    <hr>
+                    <p>Interview</p>
+                    <p class="event-date">Date : 14 Octobre 2026</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h3>Fuckup night</h3>
+                    <hr>
+                    <p>Soiré entrepreuniariale où des entrepreneures viennent partager publiquement leurs plus grands échecs. L'objectif est de déstigmatiser l'erreur, d'en tirer des leçons concrètes et de montrer avec authenticité que les plus grands succès se construisent souvent sur des ratés. </p>
+                    <p class="event-date">Date : 10 Novembre 2026 </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERVENANTS -->
+    <section id="intervenants" style="padding: 80px 20px; background: #1E1E1E; border-top: 1px solid #333;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 38px; color: #FFF700;">Les intervenants que nous avons déjà eus</h2>
+            <p style="text-align: center; color: #aaa; margin-top: 15px; font-size: 16px;">Découvrez les professionnels et entrepreneurs qui ont partagé leur parcours et leur expertise lors de nos précédents événements.</p>
+            
+            <div class="intervenants-grid">
+                <div class="intervenant-card">
+                    <img src="Anne-France Pottier.png" alt="Anne-France Pottier" class="intervenant-img">
+                    <h3>Anne-France Pottier</h3>
+                    <p>Co-fondatrice de la Smile School</p>
+                </div>
+                <div class="intervenant-card">
+                    <img src="David Dieu.png" alt="David Dieu" class="intervenant-img">
+                    <h3>David Dieu</h3>
+                    <p>Fondateur de Vertical View et créateur de contenu</p>
+                </div>
+                <div class="intervenant-card">
+                    <img src="Morgane Dawance.png" alt="Morgann Dawance" class="intervenant-img">
+                    <h3>Morgann Dawance</h3>
+                    <p>Co-fondateur et CEO de Leadix</p>
+                </div>
+                <div class="intervenant-card">
+                    <img src="Johane Baty.png" alt="Johane Baty" class="intervenant-img">
+                    <h3>Johane Baty</h3>
+                    <p>Administratrice gérante Marjalou Invest et Coordinatrice LJE</p>
+                </div>
+                <div class="intervenant-card">
+                    <img src="Maxime Cuvelier.png" alt="Maxime Cuvelier" class="intervenant-img">
+                    <h3>Maxime Cuvelier</h3>
+                    <p>Fondateur de New Borne & Ancre</p>
+                </div>
+                <div class="intervenant-card">
+                    <img src="Véronique Monnaie.png" alt="Véronique Monnaie" class="intervenant-img">
+                    <h3>Véronique Monnaie</h3>
+                    <p>Analyste prêts/garantie chez Wallonie Entreprendre</p>
+                </div>
+                <div class="intervenant-card">
+                    <img src="David Lashet.png" alt="David Laschet" class="intervenant-img">
+                    <h3>David Laschet</h3>
+                    <p>Fondateur de HowIMetMyCofounders & créateur du Placard</p>
+                </div>
+                <div class="intervenant-card">
+                    <img src="Jesse Onema.png" alt="Jesse Onema" class="intervenant-img">
+                    <h3>Jesse Onema</h3>
+                    <p>Expert assurances professionnelles chez BNP Paribas</p>
+                </div>
+                <div class="intervenant-card">
+                    <img src="Christelle Philippe.png" alt="Christelle Phillippe" class="intervenant-img">
+                    <h3>Christelle Phillippe</h3>
+                    <p>Sales Manager chez BNP Paribas</p>
+                </div>
+                <div class="intervenant-card">
+                    <img src="Arnaud Fauquand.png" alt="Arnaud Fauquand" class="intervenant-img">
+                    <h3>Arnaud Fauquand</h3>
+                    <p>Étudiant de 21 ans, fondateur de 3Designers & 3DC</p>
+                </div>
+                <div class="intervenant-card">
+                    <img src="Evan Martin.png" alt="Evan Martin" class="intervenant-img">
+                    <h3>Evan Martin</h3>
+                    <p>Fondateur I3 Belgium, MEB solution et Orbyt</p>
+                </div>
+                <div class="intervenant-card">
+                    <img src="Ritchelle.png" alt="Ritchelle" class="intervenant-img">
+                    <h3>Ritchelle</h3>
+                    <p>Cofondatrice de l'agence OHR studio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTOS -->
+    <section id="photos" style="padding: 60px 20px; background: #1E1E1E; text-align: center; border-top: 1px solid #333;">
+        <div class="container">
+            <h2 class="yellow-text">Nos événements en images</h2>
+            <div style="background: #2a2a2a; border: 2px dashed #444; border-radius: 16px; padding: 60px 20px; margin-top: 30px;">
+                <i class="fas fa-camera-retro" style="font-size: 48px; color: #555; margin-bottom: 15px;"></i>
+                <p style="color: #aaa; font-size: 18px; font-weight: 600;">À venir...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTAGRAM SECTION -->
+    <section class="instagram-section">
+        <div class="instagram-content">
+            <div class="instagram-left">
+                <h2>Follow us on Instagram</h2>
+                <p>À ce stade, nous sommes encore peu présent sur Instagram. Toutefois, notre ambition est d'y développer une communauté engagée et active. La création de contenus pertinents et attractifs constituera donc l'une des priorités de notre pôle communication, afin de renforcer notre visibilité et de fédérer les jeunes autour de l'esprit entrepreneurial.</p>
+                <a href="#candidature" class="btn btn-outline-white">en savoir plus sur la section communication &rarr;</a>
+            </div>
+            <div class="instagram-right">
+                <div class="stat">
+                    <span class="stat-number">181</span>
+                    <span class="stat-label">Nombre de followers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">300</span>
+                    <span class="stat-label">Objectif pour Juin 2027</span>
+                </div>
+                <a href="https://www.instagram.com/startgen_lln?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn btn-yellow">clique ici pour nous suivre &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTENAIRES -->
+    <section class="partners-section">
+        <div class="container">
+            <h2 class="yellow-text">Communication partenaire</h2>
+            <h2>Parce qu'ils nous font confiance.</h2>
+            <div class="partner-carousel">
+                <div class="partner-slide active" id="slide-0">
+                    <img src="logo-bnp.png" alt="BNP">
+                    <p class="partner-name">BNP</p>
+                </div>
+                <div class="partner-slide" id="slide-1">
+                    <img src="logo-wallonie-entreprendre.png" alt="Wallonie Entreprendre">
+                    <p class="partner-name">Wallonie Entreprendre</p>
+                </div>
+                <div class="partner-slide" id="slide-2">
+                    <img src="logo-ucm.png" alt="UCM">
+                    <p class="partner-name">UCM</p>
+                </div>
+                <div class="partner-slide" id="slide-3">
+                    <img src="logo-cercle.png" alt="Start de Wallonie Bruxelles">
+                    <p class="partner-name">Start de Wallonie Bruxelles</p>
+                </div>
+                <div class="partner-slide" id="slide-4">
+                    <img src="logo-deloitte.png" alt="Deloitte">
+                    <p class="partner-name">Deloitte</p>
+                </div>
+                <div class="partner-slide" id="slide-5">
+                    <img src="logo-lje.png" alt="LJE">
+                    <p class="partner-name">LJE</p>
+                </div>
+                
+                <div class="carousel-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                    <span class="dot" data-slide="4"></span>
+                    <span class="dot" data-slide="5"></span>
+                </div>
+                <div class="carousel-progress">
+                    <div class="carousel-progress-bar"></div>
+                </div>
+                <button class="carousel-arrow carousel-prev" aria-label="Précédent">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-arrow carousel-next" aria-label="Suivant">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <p class="partners-quote">"En soutenant StartGen, ils soutiennent l'avenir. Merci à nos partenaires d'oser avec nous."</p>
+
+            <!-- Anciens partenaires -->
+            <div class="past-partners">
+                <h3>Ils nous ont aussi fait confiance</h3>
+                <div class="partner-carousel">
+                    <div class="partner-slide active" id="past-slide-0">
+                        <img src="logo-buddy.png" alt="Buddy">
+                        <p class="partner-name">Buddy</p>
+                    </div>
+                    <div class="partner-slide" id="past-slide-1">
+                        <img src="logo-redbull.png" alt="Red Bull">
+                        <p class="partner-name">Red Bull</p>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                    </div>
+                    <div class="carousel-progress">
+                        <div class="carousel-progress-bar"></div>
+                    </div>
+                    <button class="carousel-arrow carousel-prev" aria-label="Précédent">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-arrow carousel-next" aria-label="Suivant">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- STARTGEN AILLEURS EN WALLONIE -->
+    <!-- ========================================== -->
+    <section class="network-section">
+        <div class="container">
+            <div class="network-header">
+                <h2 class="yellow-text">Louvain-la-Neuve, c'est trop loin pour toi ?</h2>
+                <p class="network-intro">Pas de panique, le projet StartGen ne s'arrête pas à Louvain-la-Neuve ! Découvre les autres Startgens de Namur, Liège et Mons et rejoins celle la plus proche de chez toi !</p>
+            </div>
+            <div class="network-grid">
+                <!-- Namur -->
+                <div class="network-card" style="--city-color:#14E62E;">
+                    <img src="image_startgen_namur.jpg" alt="StartGen Namur" class="network-logo">
+                    <h3>StartGen Namur</h3>
+                    <p>Rejoins l'aventure entrepreneuriale du côté de Namur.</p>
+                    <a href="mailto:contact@startgennamur.be" class="btn btn-network">
+                        <i class="fas fa-envelope"></i> contact@startgennamur.be
+                    </a>
+                </div>
+
+                <!-- Liège -->
+                <div class="network-card" style="--city-color:#FA1E00;">
+                    <img src="image_startgen_liege.jpg" alt="StartGen Liège" class="network-logo">
+                    <h3>StartGen Liège</h3>
+                    <p>Rejoins l'aventure entrepreneuriale du côté de Liège.</p>
+                    <a href="mailto:startgenliege@gmail.com" class="btn btn-network">
+                        <i class="fas fa-envelope"></i> startgenliege@gmail.com
+                    </a>
+                </div>
+
+                <!-- Mons -->
+                <div class="network-card" style="--city-color:#00D2FA;">
+                    <img src="image_startgen_mons.jpg" alt="StartGen Mons" class="network-logo">
+                    <h3>StartGen Mons</h3>
+                    <p>Rejoins l'aventure entrepreneuriale du côté de Mons.</p>
+                    <a href="mailto:contact@startgen-mons.be" class="btn btn-network">
+                        <i class="fas fa-envelope"></i> contact@startgen-mons.be
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- AGENDA DU RÉSEAU STARTGEN -->
+    <!-- ========================================== -->
+    <section id="agenda-reseau" style="padding: 80px 20px; background: #2a2a2a; border-top: 1px solid #333;">
+        <div class="container">
+            <h2 class="yellow-text" style="text-align: center; font-size: 38px;">Agenda du réseau StartGen</h2>
+            <p style="text-align: center; color: #aaa; margin-top: 15px; font-size: 16px;">Découvrez les événements à venir dans les autres StartGen à travers la Wallonie.</p>
+            
+            <div class="network-events-grid">
+                <div class="net-event-card" style="border-left-color: #00D2FA;">
+                    <div class="net-event-date" style="color: #00D2FA;"><i class="fas fa-calendar-alt"></i> 19/10/2026</div>
+                    <div class="net-event-city" style="color: #00D2FA; border: 1px solid #00D2FA;">StartGen Mons</div>
+                    <h3 class="net-event-title">Jeu de networking Helha</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> Helha Mons</div>
+                </div>
+                <div class="net-event-card" style="border-left-color: #14E62E;">
+                    <div class="net-event-date" style="color: #14E62E;"><i class="fas fa-calendar-alt"></i> 20/10/2026</div>
+                    <div class="net-event-city" style="color: #14E62E; border: 1px solid #14E62E;">StartGen Namur</div>
+                    <h3 class="net-event-title">Soirée de recrutement</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> À confirmer</div>
+                </div>
+                <div class="net-event-card" style="border-left-color: #FA1E00;">
+                    <div class="net-event-date" style="color: #FA1E00;"><i class="fas fa-calendar-alt"></i> 04/11/2026</div>
+                    <div class="net-event-city" style="color: #FA1E00; border: 1px solid #FA1E00;">StartGen Liège</div>
+                    <h3 class="net-event-title">FuckUp Night</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> BNP</div>
+                </div>
+                <div class="net-event-card" style="border-left-color: #00D2FA;">
+                    <div class="net-event-date" style="color: #00D2FA;"><i class="fas fa-calendar-alt"></i> 12/11/2026</div>
+                    <div class="net-event-city" style="color: #00D2FA; border: 1px solid #00D2FA;">StartGen Mons</div>
+                    <h3 class="net-event-title">Soirée "Apprendre à vendre un produit"</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> FUCAM</div>
+                </div>
+                <div class="net-event-card" style="border-left-color: #00D2FA;">
+                    <div class="net-event-date" style="color: #00D2FA;"><i class="fas fa-calendar-alt"></i> 24/11/2026</div>
+                    <div class="net-event-city" style="color: #00D2FA; border: 1px solid #00D2FA;">StartGen Mons</div>
+                    <h3 class="net-event-title">Talk: de l'ingénierie à l'entrepreneuriat</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> Umons</div>
+                </div>
+                <div class="net-event-card" style="border-left-color: #14E62E;">
+                    <div class="net-event-date" style="color: #14E62E;"><i class="fas fa-calendar-alt"></i> 25/11/2026</div>
+                    <div class="net-event-city" style="color: #14E62E; border: 1px solid #14E62E;">StartGen Namur</div>
+                    <h3 class="net-event-title">FuckUp Night</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> À confirmer</div>
+                </div>
+                <div class="net-event-card" style="border-left-color: #14E62E;">
+                    <div class="net-event-date" style="color: #14E62E;"><i class="fas fa-calendar-alt"></i> 02/02/2027</div>
+                    <div class="net-event-city" style="color: #14E62E; border: 1px solid #14E62E;">StartGen Namur</div>
+                    <h3 class="net-event-title">Évènement nom à confirmer</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> BNP</div>
+                </div>
+                <div class="net-event-card" style="border-left-color: #FA1E00;">
+                    <div class="net-event-date" style="color: #FA1E00;"><i class="fas fa-calendar-alt"></i> 15/02/2027</div>
+                    <div class="net-event-city" style="color: #FA1E00; border: 1px solid #FA1E00;">StartGen Liège</div>
+                    <h3 class="net-event-title">Success Talk</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> VentureLab</div>
+                </div>
+                <div class="net-event-card" style="border-left-color: #14E62E;">
+                    <div class="net-event-date" style="color: #14E62E;"><i class="fas fa-calendar-alt"></i> 03/03/2027</div>
+                    <div class="net-event-city" style="color: #14E62E; border: 1px solid #14E62E;">StartGen Namur</div>
+                    <h3 class="net-event-title">Conférence avec partenaire</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> À confirmer</div>
+                </div>
+                <div class="net-event-card" style="border-left-color: #00D2FA;">
+                    <div class="net-event-date" style="color: #00D2FA;"><i class="fas fa-calendar-alt"></i> 10/03/2027</div>
+                    <div class="net-event-city" style="color: #00D2FA; border: 1px solid #00D2FA;">StartGen Mons</div>
+                    <h3 class="net-event-title">FuckUp Night</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> Helha Mons</div>
+                </div>
+                <div class="net-event-card" style="border-left-color: #00D2FA;">
+                    <div class="net-event-date" style="color: #00D2FA;"><i class="fas fa-calendar-alt"></i> 31/03/2027</div>
+                    <div class="net-event-city" style="color: #00D2FA; border: 1px solid #00D2FA;">StartGen Mons</div>
+                    <h3 class="net-event-title">Pitch Challenge - Workshop</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> FUCAM</div>
+                </div>
+                <div class="net-event-card" style="border-left-color: #FA1E00;">
+                    <div class="net-event-date" style="color: #FA1E00;"><i class="fas fa-calendar-alt"></i> 12/04/2027</div>
+                    <div class="net-event-city" style="color: #FA1E00; border: 1px solid #FA1E00;">StartGen Liège</div>
+                    <h3 class="net-event-title">Start Spritz</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> À confirmer</div>
+                </div>
+                <div class="net-event-card" style="border-left-color: #00D2FA;">
+                    <div class="net-event-date" style="color: #00D2FA;"><i class="fas fa-calendar-alt"></i> 13/04/2027</div>
+                    <div class="net-event-city" style="color: #00D2FA; border: 1px solid #00D2FA;">StartGen Mons</div>
+                    <h3 class="net-event-title">Conférence avec Starters Corners</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> À confirmer</div>
+                </div>
+                <div class="net-event-card" style="border-left-color: #14E62E;">
+                    <div class="net-event-date" style="color: #14E62E;"><i class="fas fa-calendar-alt"></i> 27/04/2027</div>
+                    <div class="net-event-city" style="color: #14E62E; border: 1px solid #14E62E;">StartGen Namur</div>
+                    <h3 class="net-event-title">Success Talk</h3>
+                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> À confirmer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FORMULAIRE DE CANDIDATURE -->
+    <section id="candidature" class="candidature-section">
+        <div class="container">
+            <img src="logo-startgen-lln.png" alt="StartGen LLN" class="form-logo">
+            <h2 class="yellow-text">Rejoins notre équipe !</h2>
+            <p class="form-intro">Tu es motivé(e) et tu veux vivre une aventure entrepreneuriale ? Remplis le formulaire ci-dessous pour postuler au sein de StartGen Louvain-la-Neuve.</p>
+            
+            <form class="candidature-form" action="https://formsubmit.co/startgenlln@gmail.com" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Nouvelle candidature StartGen LLN">
+                <input type="hidden" name="_template" value="table">
+
+                <div class="form-group-title">
+                    <span class="form-step-number">1</span>
+                    <h3>Informations personnelles</h3>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nom">Nom <span class="required">*</span></label>
+                        <input type="text" id="nom" name="nom" placeholder="Ton nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom">Prénom <span class="required">*</span></label>
+                        <input type="text" id="prenom" name="prenom" placeholder="Ton prénom" required>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="email">Adresse e-mail <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="ton.email@exemple.com" required>
+                </div>
+
+                <div class="form-group-title">
+                    <span class="form-step-number">2</span>
+                    <h3>Choisis ton département</h3>
+                </div>
+                <div class="department-grid">
+                    <label class="department-card">
+                        <input type="radio" name="departement" value="communication" required>
+                        <div class="department-content">
+                            <div class="department-icon"><i class="fas fa-bullhorn"></i></div>
+                            <span class="department-name">Communication</span>
+                            <span class="department-desc">Réseaux sociaux, contenu, image de marque</span>
+                        </div>
+                    </label>
+                    <label class="department-card">
+                        <input type="radio" name="departement" value="rh">
+                        <div class="department-content">
+                            <div class="department-icon"><i class="fas fa-users"></i></div>
+                            <span class="department-name">RH</span>
+                            <span class="department-desc">Recrutement, cohésion d'équipe, bien-être</span>
+                        </div>
+                    </label>
+                    <label class="department-card">
+                        <input type="radio" name="departement" value="financier">
+                        <div class="department-content">
+                            <div class="department-icon"><i class="fas fa-chart-line"></i></div>
+                            <span class="department-name">Financier</span>
+                            <span class="department-desc">Budget, trésorerie, sponsors</span>
+                        </div>
+                    </label>
+                    <label class="department-card">
+                        <input type="radio" name="departement" value="logistique">
+                        <div class="department-content">
+                            <div class="department-icon"><i class="fas fa-truck"></i></div>
+                            <span class="department-name">Logistique</span>
+                            <span class="department-desc">Organisation d'événements, matériel, lieux</span>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="form-group-title">
+                    <span class="form-step-number">3</span>
+                    <h3>Motivation & CV</h3>
+                </div>
+                <div class="form-group full-width">
+                    <label for="motivation">Lettre de motivation <span class="required">*</span></label>
+                    <textarea id="motivation" name="motivation" rows="6" placeholder="Dis-nous pourquoi tu souhaites rejoindre StartGen LLN..." required></textarea>
+                </div>
+                <div class="form-group full-width">
+                    <label for="cv">CV (PDF uniquement) <span class="required">*</span></label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="cv" name="cv" accept=".pdf" required>
+                        <div class="file-upload-custom">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Glisse ton CV ici ou clique pour parcourir</span>
+                            <small>Format accepté : PDF — Max 5 Mo</small>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-submit">
+                    <span>Envoyer ma candidature</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+<!-- ========================================== -->
+    <!-- AVIS DE NOS ÉVÉNEMENTS -->
+    <!-- ========================================== -->
+    <section id="avis-recus" style="padding: 80px 20px; background: #1E1E1E; border-top: 1px solid #333;">
+        <div class="container">
+            <h2 class="yellow-text" style="text-align: center; font-size: 38px;">Avis de nos événements</h2>
+            <div style="background: #2a2a2a; border: 2px dashed #444; border-radius: 16px; padding: 60px 20px; margin-top: 30px; text-align: center;">
+                <i class="fas fa-comments" style="font-size: 48px; color: #555; margin-bottom: 15px;"></i>
+                <p style="color: #aaa; font-size: 18px; font-weight: 600;">Prochainement...</p>
+            </div>
+        </div>
+    </section>
+
+ <!-- ========================================== -->
+    <!-- FORMULAIRE D'AVIS STARTGEN LLN -->
+    <!-- ========================================== -->
+    <section id="avis" class="candidature-section" style="border-top: 1px solid #333;">
+        <div class="container">
+            <h2 class="yellow-text" style="text-align: center; font-size: 38px;">Donne-nous ton avis !</h2>
+            <p class="form-intro">Ton retour est précieux. Dis-nous à quel événement StartGen LLN tu as participé et ce que tu en as pensé.</p>
+            
+            <form class="candidature-form" action="https://formsubmit.co/startgenlln@gmail.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Nouveau feedback événement StartGen LLN">
+                <input type="hidden" name="_template" value="table">
+
+                <div class="form-group-title" style="margin-top: 0;">
+                    <span class="form-step-number">1</span>
+                    <h3>Informations personnelles</h3>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="avis-nom">Nom <span class="required">*</span></label>
+                        <input type="text" id="avis-nom" name="nom" placeholder="Ton nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="avis-prenom">Prénom <span class="required">*</span></label>
+                        <input type="text" id="avis-prenom" name="prenom" placeholder="Ton prénom" required>
+                    </div>
+                </div>
+
+                <div class="form-group-title">
+                    <span class="form-step-number">2</span>
+                    <h3>Quel événement as-tu suivi ?</h3>
+                </div>
+                <div class="form-group full-width" style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; margin-left: 10px;">
+                    <label style="color: #fff; font-size: 16px; display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" name="evenement_suivi" value="Event Brasse-Temps" style="width: 22px; height: 22px; cursor: pointer;"> 
+                        Event Brasse-Temps (14 Oct. 2026)
+                    </label>
+                    <label style="color: #fff; font-size: 16px; display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" name="evenement_suivi" value="Fuckup Night" style="width: 22px; height: 22px; cursor: pointer;"> 
+                        Fuckup Night (10 Nov. 2026)
+                    </label>
+                </div>
+
+                <div class="form-group-title">
+                    <span class="form-step-number">3</span>
+                    <h3>Ton avis</h3>
+                </div>
+                <div class="form-group full-width">
+                    <label for="feedback">Qu'en as-tu pensé ? <span class="required">*</span></label>
+                    <textarea id="feedback" name="feedback" rows="6" placeholder="Ce que tu as aimé, ce qu'on peut améliorer..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-submit">
+                    <span>Envoyer mon avis</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-logo">
+            <img src="logo-startgen-lln.png" alt="StartGen LLN" class="footer-logo-img">
+        </div>
+        <div class="footer-links">
+            <a href="#accueil" class="yellow-text">Accueil</a>
+            <a href="#actualites" class="yellow-text">Actualités</a>
+            <a href="#events" class="yellow-text">Events</a>
+            <a href="#intervenants" class="yellow-text">Intervenants</a>
+            <a href="#photos" class="yellow-text">Photos</a>
+            <a href="#team" class="yellow-text">Team</a>
+            <a href="#contact" class="yellow-text">Contact</a>
+        </div>
+        <div class="footer-socials">
+            <a href="https://linktr.ee/startgenlln?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank" class="social-icon"><i class="fas fa-tree"></i></a>
+            <a href="mailto:startgenlln@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="footer-copy">&copy; 2025 StartGen Louvain-la-Neuve — Une initiative des LJE</p>
+    </footer>
+
+    <!-- SCRIPT CARROUSEL -->
+    <script>
+        document.querySelectorAll('.partner-carousel').forEach(initPartnerCarousel);
+
+        function initPartnerCarousel(carousel) {
+            const slides = carousel.querySelectorAll('.partner-slide');
+            const dots = carousel.querySelectorAll('.dot');
+            const progressBar = carousel.querySelector('.carousel-progress-bar');
+            const prevBtn = carousel.querySelector('.carousel-prev');
+            const nextBtn = carousel.querySelector('.carousel-next');
+            const totalSlides = slides.length;
+            const intervalTime = 5000;
+            let currentSlide = 0;
+            let autoPlay;
+
+            function goToSlide(index) {
+                slides.forEach(s => s.classList.remove('active'));
+                dots.forEach(d => d.classList.remove('active'));
+                currentSlide = (index + totalSlides) % totalSlides;
+                slides[currentSlide].classList.add('active');
+                if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+                resetProgress();
+            }
+
+            function nextSlide() { goToSlide(currentSlide + 1); }
+            function prevSlide() { goToSlide(currentSlide - 1); }
+
+            function resetProgress() {
+                if (!progressBar) return;
+                progressBar.style.transition = 'none';
+                progressBar.style.width = '0%';
+                progressBar.offsetHeight;
+                progressBar.style.transition = `width ${intervalTime}ms linear`;
+                progressBar.style.width = '100%';
+            }
+
+            function startAutoPlay() { resetProgress(); autoPlay = setInterval(nextSlide, intervalTime); }
+            function stopAutoPlay() { clearInterval(autoPlay); }
+            function restartAutoPlay() { stopAutoPlay(); startAutoPlay(); }
+
+            if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); restartAutoPlay(); });
+            if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); restartAutoPlay(); });
+            dots.forEach((dot, i) => dot.addEventListener('click', () => { goToSlide(i); restartAutoPlay(); }));
+
+            carousel.addEventListener('mouseenter', stopAutoPlay);
+            carousel.addEventListener('mouseleave', restartAutoPlay);
+
+            if (totalSlides > 1) startAutoPlay();
+        }
+    </script>
+
+    <!-- SCRIPT UPLOAD CV -->
+    <script>
+        const fileInput = document.getElementById('cv');
+        const fileUploadCustom = document.querySelector('.file-upload-custom');
+
+        fileInput.addEventListener('change', function() {
+            if (fileInput.files.length > 0) {
+                const fileName = fileInput.files[0].name;
+                const fileSize = (fileInput.files[0].size / 1024 / 1024).toFixed(2);
+                fileUploadCustom.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <span class="file-name">${fileName}</span>
+                    <small>Taille : ${fileSize} Mo</small>
+                    <span class="file-change">Cliquer pour changer de fichier</span>
+                `;
+                fileUploadCustom.classList.add('file-selected');
+            } else {
+                fileUploadCustom.innerHTML = `
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span>Glisse ton CV ici ou clique pour parcourir</span>
+                    <small>Format accepté : PDF — Max 5 Mo</small>
+                `;
+                fileUploadCustom.classList.remove('file-selected');
+            }
+        });
+    </script>
+</body>
+</html>
