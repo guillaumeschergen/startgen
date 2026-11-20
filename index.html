@@ -7,9 +7,17 @@
     <meta name="description" content="Événements d'entrepreneuriat étudiant à Louvain-la-Neuve : Fuckup Night, talks d'entrepreneurs, networking. Agenda, photos et contact de StartGen LLN.">
     <meta name="theme-color" content="#1E1E1E">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://guillaumeschergen.github.io/startgen/">
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
 
-    <!-- Réseaux sociaux (ajouter og:url et og:image en URL absolue une fois le domaine connu) -->
+    <!-- Réseaux sociaux -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://guillaumeschergen.github.io/startgen/">
+    <meta property="og:image" content="https://guillaumeschergen.github.io/startgen/img/og-startgen-lln.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Logo StartGen Louvain-la-Neuve">
+    <meta name="twitter:card" content="summary_large_image">
     <meta property="og:locale" content="fr_BE">
     <meta property="og:site_name" content="StartGen Louvain-la-Neuve">
     <meta property="og:title" content="StartGen LLN | Événements d'entrepreneuriat étudiant à Louvain-la-Neuve">
@@ -28,8 +36,18 @@
         "@context": "https://schema.org",
         "@graph": [
             {
+                "@type": "WebSite",
+                "@id": "https://guillaumeschergen.github.io/startgen/#site",
+                "url": "https://guillaumeschergen.github.io/startgen/",
+                "name": "StartGen Louvain-la-Neuve",
+                "inLanguage": "fr-BE",
+                "publisher": { "@id": "https://guillaumeschergen.github.io/startgen/#organisation" }
+            },
+            {
                 "@type": "Organization",
-                "@id": "#organisation",
+                "@id": "https://guillaumeschergen.github.io/startgen/#organisation",
+                "url": "https://guillaumeschergen.github.io/startgen/",
+                "logo": "https://guillaumeschergen.github.io/startgen/img/logo-startgen-lln-560.webp",
                 "name": "StartGen Louvain-la-Neuve",
                 "alternateName": "StartGen LLN",
                 "description": "Antenne étudiante de StartGen qui organise des événements d'entrepreneuriat à Louvain-la-Neuve.",
@@ -54,7 +72,7 @@
                     "name": "Auditoire Agora 1",
                     "address": { "@type": "PostalAddress", "addressLocality": "Louvain-la-Neuve", "postalCode": "1348", "addressCountry": "BE" }
                 },
-                "organizer": { "@id": "#organisation" },
+                "organizer": { "@id": "https://guillaumeschergen.github.io/startgen/#organisation" },
                 "offers": { "@type": "Offer", "url": "https://www.tickettailor.com/events/fuckupnightsbrussels/2479124" }
             },
             {
@@ -71,7 +89,7 @@
                     "name": "Brasse-Temps",
                     "address": { "@type": "PostalAddress", "addressLocality": "Louvain-la-Neuve", "addressCountry": "BE" }
                 },
-                "organizer": { "@id": "#organisation" }
+                "organizer": { "@id": "https://guillaumeschergen.github.io/startgen/#organisation" }
             }
         ]
     }
