@@ -984,6 +984,8 @@ html:not(.js) .partner-slide:first-child { opacity: 1; visibility: visible; tran
 .form-group textarea { resize: vertical; min-height: 130px; }
 
 .form-note { font-size: 13px; color: #aaa; }
+.form-status { margin-top: 14px; padding: 12px 14px; border-radius: 8px; background: rgba(255, 247, 0, 0.08); border: 1px solid rgba(255, 247, 0, 0.4); color: #fff; font-size: 15px; }
+.btn-submit:disabled { opacity: 0.7; cursor: progress; transform: none; box-shadow: none; }
 
 .hp-field { position: absolute !important; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 

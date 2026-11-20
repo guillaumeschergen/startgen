@@ -1,5 +1,20 @@
 # Configuration du déploiement Netlify (https://startgenlln.netlify.app)
 [build]
-  publish = "."
-  # Intègre style.css dans index.html sur la copie déployée (voir scripts/inline-css.js)
-  command = "node scripts/inline-css.js"
+  # Ne publie que les fichiers listés dans scripts/build.js (dossier dist/)
+  command = "node scripts/build.js"
+  publish = "dist"
+
+# Limite de débit par visiteur (adresse IP) sur tout le site.
+# Une visite complète de la page fait environ 45 requêtes ; 400 par minute laisse
+# de la marge à plusieurs étudiants derrière la même connexion (wifi du campus),
+# tout en coupant un script qui télécharge les images en boucle.
+# Au-delà, Netlify répond « 429 Too Many Requests » pendant le reste de la minute.
+[[redirects]]
+  from = "/*"
+  to = "/:splat"
+  status = 200
+
+  [redirects.rate_limit]
+    window_limit = 400
+    window_size = 60
+    aggregate_by = ["ip", "domain"]

@@ -671,8 +671,8 @@
             <h2 id="avis-title" class="yellow-text">Donne-nous ton avis !</h2>
             <p class="form-intro">Ton retour est précieux. Dis-nous à quel événement StartGen LLN tu as participé et ce que tu en as pensé. Les avis reçus seront bientôt publiés ici.</p>
 
-            <form class="candidature-form" action="https://formsubmit.co/startgenlln@gmail.com" method="POST">
-                <input type="hidden" name="_captcha" value="false">
+            <form class="candidature-form" id="form-avis" action="https://formsubmit.co/startgenlln@gmail.com" method="POST">
+                <!-- Anti-spam : la vérification reCAPTCHA de FormSubmit est active (ne pas remettre _captcha=false) -->
                 <input type="hidden" name="_subject" value="Nouveau feedback événement StartGen LLN">
                 <input type="hidden" name="_template" value="table">
                 <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -684,11 +684,11 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="avis-nom">Nom <span class="required" aria-hidden="true">*</span></label>
-                        <input type="text" id="avis-nom" name="nom" placeholder="Ton nom" autocomplete="family-name" required>
+                        <input type="text" id="avis-nom" name="nom" placeholder="Ton nom" autocomplete="family-name" maxlength="80" required>
                     </div>
                     <div class="form-group">
                         <label for="avis-prenom">Prénom <span class="required" aria-hidden="true">*</span></label>
-                        <input type="text" id="avis-prenom" name="prenom" placeholder="Ton prénom" autocomplete="given-name" required>
+                        <input type="text" id="avis-prenom" name="prenom" placeholder="Ton prénom" autocomplete="given-name" maxlength="80" required>
                     </div>
                 </div>
 
@@ -713,9 +713,10 @@
                 </div>
                 <div class="form-group">
                     <label for="feedback">Qu'en as-tu pensé ? <span class="required" aria-hidden="true">*</span></label>
-                    <textarea id="feedback" name="feedback" rows="6" placeholder="Ce que tu as aimé, ce qu'on peut améliorer..." required></textarea>
+                    <textarea id="feedback" name="feedback" rows="6" placeholder="Ce que tu as aimé, ce qu'on peut améliorer..." maxlength="2000" required></textarea>
                 </div>
-                <p class="form-note"><span class="required" aria-hidden="true">*</span> Champs obligatoires</p>
+                <p class="form-note"><span class="required" aria-hidden="true">*</span> Champs obligatoires · une vérification anti-robot peut s'afficher après l'envoi.</p>
+                <p class="form-status" id="avis-status" role="status" aria-live="polite" hidden></p>
 
                 <button type="submit" class="btn btn-submit">
                     <span>Envoyer mon avis</span>
@@ -832,6 +833,43 @@
                 new IntersectionObserver(function (entries) { entries[0].isIntersecting ? start() : stop(); }).observe(carousel);
             } else { start(); }
         });
+
+        /* ---------- Formulaire d'avis : un seul envoi à la fois, pas d'envois en rafale ----------
+           Évite les doubles clics, les renvois par le bouton « retour » et les envois répétés
+           depuis le même navigateur. Aucune relance automatique : si FormSubmit ne répond pas,
+           rien n'est renvoyé sans une nouvelle action du visiteur, après le délai d'attente. */
+        var avisForm = document.getElementById('form-avis');
+        if (avisForm) {
+            var KEY = 'startgen-avis-envois', COOLDOWN = 60 * 1000, DAY = 24 * 3600 * 1000, MAX_PER_DAY = 5;
+            var status = document.getElementById('avis-status');
+            var submitBtn = avisForm.querySelector('[type="submit"]');
+            var submitLabel = submitBtn.innerHTML;
+            var readSends = function () {
+                try { return (JSON.parse(localStorage.getItem(KEY)) || []).filter(function (t) { return typeof t === 'number' && Date.now() - t < DAY; }); }
+                catch (e) { return []; }
+            };
+            var say = function (msg) { status.textContent = msg; status.hidden = !msg; };
+            var locked = false;
+            avisForm.addEventListener('submit', function (e) {
+                if (locked) { e.preventDefault(); return; }
+                var sends = readSends(), now = Date.now();
+                var last = sends.length ? Math.max.apply(null, sends) : 0;
+                if (sends.length >= MAX_PER_DAY) {
+                    e.preventDefault(); say('Merci ! Tu as déjà envoyé plusieurs avis aujourd\'hui. Pour nous écrire à nouveau, utilise l\'adresse e-mail en bas de page.'); return;
+                }
+                if (now - last < COOLDOWN) {
+                    e.preventDefault(); say('Ton avis vient d\'être envoyé. Patiente ' + Math.ceil((COOLDOWN - (now - last)) / 1000) + ' secondes avant d\'en envoyer un autre.'); return;
+                }
+                sends.push(now);
+                try { localStorage.setItem(KEY, JSON.stringify(sends)); } catch (err) { /* stockage indisponible : le verrou ci-dessous protège quand même des doubles clics */ }
+                locked = true;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Envoi en cours…';
+                say('');
+            });
+            // Retour sur la page (bouton « précédent ») : on réactive le bouton, le délai d'attente reste appliqué
+            window.addEventListener('pageshow', function () { locked = false; submitBtn.disabled = false; submitBtn.innerHTML = submitLabel; });
+        }
     })();
     </script>
 </body>
