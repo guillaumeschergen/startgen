@@ -1,0 +1,102 @@
+    <!-- FORMULAIRE DE CANDIDATURE -->
+    <section id="candidature" class="candidature-section candidature-join" aria-labelledby="candidature-title">
+        <div class="container">
+            <img src="img/logo-startgen-lln-160.webp" srcset="img/logo-startgen-lln-160.webp 1x, img/logo-startgen-lln-280.webp 2x" width="90" height="90" loading="lazy" decoding="async" alt="" class="form-logo">
+            <h2 id="candidature-title" class="yellow-text">Rejoins l'équipe StartGen Louvain-la-Neuve !</h2>
+            <p class="form-intro">Tu es motivé(e) et tu veux vivre une aventure entrepreneuriale ? Remplis le formulaire ci-dessous pour postuler au sein de StartGen Louvain-la-Neuve.</p>
+
+            <form class="candidature-form" action="https://formsubmit.co/startgenlln@gmail.com" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Nouvelle candidature StartGen LLN">
+                <input type="hidden" name="_template" value="table">
+                <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                <div class="form-group-title">
+                    <span class="form-step-number" aria-hidden="true">1</span>
+                    <h3>Informations personnelles</h3>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nom">Nom <span class="required" aria-hidden="true">*</span></label>
+                        <input type="text" id="nom" name="nom" placeholder="Ton nom" autocomplete="family-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom">Prénom <span class="required" aria-hidden="true">*</span></label>
+                        <input type="text" id="prenom" name="prenom" placeholder="Ton prénom" autocomplete="given-name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Adresse e-mail <span class="required" aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="ton.email@exemple.com" autocomplete="email" inputmode="email" required>
+                </div>
+
+                <fieldset class="form-fieldset">
+                    <legend class="form-group-title">
+                        <span class="form-step-number" aria-hidden="true">2</span>
+                        <span class="legend-text">Choisis ton département <span class="required" aria-hidden="true">*</span></span>
+                    </legend>
+                    <div class="department-grid">
+                        <label class="department-card">
+                            <input type="radio" name="departement" value="communication" required>
+                            <span class="department-content">
+                                <svg class="icon department-icon" aria-hidden="true"><use href="#i-bullhorn"/></svg>
+                                <span class="department-name">Communication</span>
+                                <span class="department-desc">Réseaux sociaux, contenu, image de marque</span>
+                            </span>
+                        </label>
+                        <label class="department-card">
+                            <input type="radio" name="departement" value="rh">
+                            <span class="department-content">
+                                <svg class="icon department-icon" aria-hidden="true"><use href="#i-users"/></svg>
+                                <span class="department-name">RH</span>
+                                <span class="department-desc">Recrutement, cohésion d'équipe, bien-être</span>
+                            </span>
+                        </label>
+                        <label class="department-card">
+                            <input type="radio" name="departement" value="financier">
+                            <span class="department-content">
+                                <svg class="icon department-icon" aria-hidden="true"><use href="#i-chart-line"/></svg>
+                                <span class="department-name">Financier</span>
+                                <span class="department-desc">Budget, trésorerie, sponsors</span>
+                            </span>
+                        </label>
+                        <label class="department-card">
+                            <input type="radio" name="departement" value="logistique">
+                            <span class="department-content">
+                                <svg class="icon department-icon" aria-hidden="true"><use href="#i-truck"/></svg>
+                                <span class="department-name">Logistique</span>
+                                <span class="department-desc">Organisation d'événements, matériel, lieux</span>
+                            </span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="form-group-title">
+                    <span class="form-step-number" aria-hidden="true">3</span>
+                    <h3>Motivation &amp; CV</h3>
+                </div>
+                <div class="form-group">
+                    <label for="motivation">Lettre de motivation <span class="required" aria-hidden="true">*</span></label>
+                    <textarea id="motivation" name="motivation" rows="6" placeholder="Dis-nous pourquoi tu souhaites rejoindre StartGen LLN..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cv">CV (PDF uniquement, 5 Mo max.) <span class="required" aria-hidden="true">*</span></label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="cv" name="cv" accept=".pdf,application/pdf" required aria-describedby="cv-status">
+                        <div class="file-upload-custom" id="cv-status" aria-live="polite">
+                            <svg class="icon" aria-hidden="true"><use href="#i-cloud-arrow-up"/></svg>
+                            <span class="file-label">Touche ou clique ici pour choisir ton CV</span>
+                            <small>Tu peux aussi le glisser ici · PDF, 5 Mo max.</small>
+                        </div>
+                    </div>
+                    <p class="file-error" id="cv-error" role="alert" hidden></p>
+                </div>
+                <p class="form-note"><span class="required" aria-hidden="true">*</span> Champs obligatoires</p>
+
+                <button type="submit" class="btn btn-submit">
+                    <span>Envoyer ma candidature</span>
+                    <svg class="icon" aria-hidden="true"><use href="#i-paper-plane"/></svg>
+                </button>
+            </form>
+        </div>
+    </section>

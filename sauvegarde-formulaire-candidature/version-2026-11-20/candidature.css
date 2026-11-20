@@ -1,0 +1,96 @@
+/* Styles propres au formulaire de candidature (les styles communs .candidature-section / .candidature-form / .form-group restent dans style.css pour le formulaire d'avis) */
+.form-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    box-shadow: 0 5px 25px rgba(255, 247, 0, 0.25);
+}
+
+/* Dépôt du CV */
+.file-upload-wrapper { position: relative; }
+.file-upload-wrapper input[type="file"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 16px;
+}
+.file-upload-custom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 30px 20px;
+    text-align: center;
+    background: var(--dark-3);
+    border: 2px dashed #666;
+    border-radius: 8px;
+    transition: border-color 0.3s, background 0.3s;
+}
+.file-upload-wrapper:hover .file-upload-custom,
+.file-upload-custom.is-dragover { border-color: var(--yellow); background: #2e2e2e; }
+.file-upload-wrapper:focus-within .file-upload-custom {
+    border-color: var(--yellow);
+    box-shadow: 0 0 0 3px rgba(255, 247, 0, 0.25);
+}
+.file-upload-custom .icon { font-size: 30px; color: var(--blue-light); }
+.file-upload-custom span { color: #ddd; font-size: 15px; font-weight: 600; }
+.file-upload-custom small { color: #aaa; font-size: 13px; }
+.file-upload-custom.file-selected { border-color: var(--yellow); border-style: solid; background: rgba(255, 247, 0, 0.06); }
+.file-upload-custom.file-selected .icon { color: var(--yellow); font-size: 34px; }
+.file-upload-custom.file-invalid { border-color: #ff6b6b; }
+.file-upload-custom.file-invalid .icon { color: #ff6b6b; }
+.file-upload-custom .file-name { color: var(--yellow); font-weight: 700; word-break: break-all; }
+.file-upload-custom .file-change { color: #aaa; font-size: 13px; font-weight: 400; text-decoration: underline; }
+.file-error { color: #ff8a8a; font-size: 14px; font-weight: 600; margin-top: 8px; }
+
+/* Choix du département : bouton radio masqué visuellement mais toujours accessible au clavier */
+.department-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+.department-card { position: relative; display: block; cursor: pointer; }
+.department-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    margin: 0;
+    cursor: pointer;
+}
+.department-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 22px 18px;
+    text-align: center;
+    background: var(--dark-3);
+    border: 2px solid #555;
+    border-radius: 12px;
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.department-card:hover .department-content { border-color: var(--yellow); background: #2e2e2e; }
+.department-card input:focus-visible + .department-content { outline: 3px solid var(--yellow); outline-offset: 3px; }
+.department-card input:checked + .department-content {
+    border-color: var(--yellow);
+    background: rgba(255, 247, 0, 0.08);
+    box-shadow: 0 0 0 3px rgba(255, 247, 0, 0.2);
+}
+.department-icon { font-size: 28px; color: var(--blue-light); margin-bottom: 4px; }
+.department-name { font-size: 17px; font-weight: 700; color: #fff; }
+.department-desc { font-size: 13px; color: var(--text-muted-dark); }
+
+@media (max-width: 768px) {
+    .department-grid { grid-template-columns: 1fr; }
+    .department-content { flex-direction: row; flex-wrap: wrap; text-align: left; padding: 16px; column-gap: 12px; }
+    .department-icon { margin: 0; font-size: 24px; }
+    .department-desc { flex-basis: 100%; }
+}
+
+@media (max-width: 480px) {
+    .form-logo { width: 60px; height: 60px; }
+}
