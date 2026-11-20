@@ -1,0 +1,9 @@
+{
+  "name": "startgen-lln",
+  "private": true,
+  "description": "Site de StartGen Louvain-la-Neuve (statique, déployé sur Netlify)",
+  "engines": { "node": ">=22.12.0" },
+  "dependencies": {
+    "@netlify/blobs": "11.1.7"
+  }
+}

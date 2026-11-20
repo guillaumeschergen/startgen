@@ -5,6 +5,8 @@
  * Renvoie le nombre d'abonnés du compte Instagram @startgen_lln via l'API officielle
  * d'Instagram. Le jeton reste côté serveur : variable d'environnement Netlify
  * IG_ACCESS_TOKEN (Site configuration → Environment variables, marquée « secret »).
+ * Ce jeton est renouvelé chaque semaine par la fonction planifiée instagram-token-refresh,
+ * qui range la version prolongée dans Netlify Blobs (voir netlify/lib/instagram-token.mjs).
  *
  * Garde-fous pour ne jamais inonder Instagram, même si le site reçoit beaucoup de visites :
  *  - destination fixe (aucune URL fournie par le visiteur) ;
@@ -15,6 +17,9 @@
  *  - après un échec, pause de 5 min sans aucun appel : on renvoie le dernier chiffre connu ;
  *  - limite de 60 requêtes par minute et par IP sur cette adresse.
  */
+
+import { getStore } from '@netlify/blobs';
+import { getToken, STORE_NAME } from '../lib/instagram-token.mjs';
 
 const API_URL = 'https://graph.instagram.com/me';   // destination fixe
 
@@ -72,6 +77,7 @@ const json = (body, status, cdnCache) => new Response(JSON.stringify(body), {
         'Cache-Control': 'public, max-age=120',
         'Netlify-CDN-Cache-Control': cdnCache,
         'X-Content-Type-Options': 'nosniff',
+        'X-Compteur-Version': '2',   // 2 = jeton renouvelé automatiquement
     },
 });
 const fresh = (r, stale = false) => json(
@@ -88,7 +94,9 @@ export default async (req) => {
     if (req.method !== 'GET' && req.method !== 'HEAD') {
         return new Response(null, { status: 405, headers: { Allow: 'GET, HEAD' } });
     }
-    const token = env('IG_ACCESS_TOKEN');
+    let store = null;
+    try { store = getStore(STORE_NAME); } catch { /* hors Netlify : on utilise la variable d'environnement */ }
+    const token = await getToken({ store, envToken: env('IG_ACCESS_TOKEN') });
     if (!token) return unavailable('Compteur Instagram non configuré');
 
     const now = Date.now();

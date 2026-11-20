@@ -4,6 +4,10 @@
   command = "node scripts/build.js"
   publish = "dist"
 
+[build.environment]
+  # Node 22 : requis par @netlify/blobs (stockage du jeton Instagram renouvelé)
+  NODE_VERSION = "22"
+
 # Limite de débit par visiteur (adresse IP) sur tout le site.
 # Une visite complète de la page fait environ 45 requêtes ; 400 par minute laisse
 # de la marge à plusieurs étudiants derrière la même connexion (wifi du campus),
