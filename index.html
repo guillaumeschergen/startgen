@@ -1,808 +1,944 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-BE">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StartGen Louvain-la-Neuve | Étudiant Entrepreneur & Événements</title>
-    <meta name="description" content="Découvrez StartGen Louvain-la-Neuve, l'initiative LJE pour promouvoir l'esprit d'entreprendre et accompagner les étudiants entrepreneurs.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StartGen LLN | Événements d'entrepreneuriat étudiant à Louvain-la-Neuve</title>
+    <meta name="description" content="Événements d'entrepreneuriat étudiant à Louvain-la-Neuve : Fuckup Night, talks d'entrepreneurs, networking. Agenda et candidatures pour rejoindre StartGen LLN.">
+    <meta name="theme-color" content="#1E1E1E">
+    <meta name="robots" content="index, follow">
+
+    <!-- Réseaux sociaux (ajouter og:url et og:image en URL absolue une fois le domaine connu) -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_BE">
+    <meta property="og:site_name" content="StartGen Louvain-la-Neuve">
+    <meta property="og:title" content="StartGen LLN | Événements d'entrepreneuriat étudiant à Louvain-la-Neuve">
+    <meta property="og:description" content="Fuckup Night, talks d'entrepreneurs et networking : les événements d'entrepreneuriat organisés par des étudiants, pour les étudiants de Louvain-la-Neuve.">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Police auto-hébergée (Inter variable, sous-ensemble latin) : plus de requêtes vers Google Fonts -->
+    <link rel="preload" href="fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        .intervenants-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        .intervenant-card {
-            background: #2a2a2a;
-            border: 2px solid #333;
-            border-radius: 16px;
-            padding: 30px 20px;
-            text-align: center;
-            transition: all 0.4s ease;
-        }
-        .intervenant-card:hover {
-            transform: translateY(-5px);
-            border-color: #FFF700;
-            box-shadow: 0 10px 30px rgba(255, 247, 0, 0.1);
-        }
-        .intervenant-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid #FFF700;
-            background: #444; 
-        }
-        .intervenant-card h3 {
-            color: #fff;
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-        .intervenant-card p {
-            color: #aaa;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        
-        /* CSS Agenda Réseau */
-        .network-events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .net-event-card {
-            background: #1E1E1E;
-            border: 1px solid #444;
-            border-left: 5px solid #FFF700;
-            border-radius: 12px;
-            padding: 25px 20px;
-            transition: all 0.3s ease;
-        }
-        .net-event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        .net-event-date {
-            font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-        .net-event-city {
-            display: inline-block;
-            background: #333;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .net-event-title {
-            color: #fff;
-            font-size: 18px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-        .net-event-location {
-            color: #888;
-            font-size: 13px;
-        }
-        .net-event-location i {
-            margin-right: 6px;
-        }
-    </style>
+    <script>document.documentElement.classList.add('js');</script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "#organisation",
+                "name": "StartGen Louvain-la-Neuve",
+                "alternateName": "StartGen LLN",
+                "description": "Antenne étudiante de StartGen qui organise des événements d'entrepreneuriat à Louvain-la-Neuve.",
+                "email": "startgenlln@gmail.com",
+                "areaServed": { "@type": "City", "name": "Louvain-la-Neuve" },
+                "parentOrganization": { "@type": "Organization", "name": "Les Jeunes Entreprises (LJE)" },
+                "sameAs": [
+                    "https://www.instagram.com/startgen_lln/",
+                    "https://linktr.ee/startgenlln"
+                ]
+            },
+            {
+                "@type": "Event",
+                "name": "Fuckup Night Louvain-la-Neuve",
+                "description": "Première Fuckup Night de Louvain-la-Neuve : des entrepreneurs racontent leurs échecs et ce qu'ils en ont appris.",
+                "startDate": "2026-11-09T18:30:00+01:00",
+                "endDate": "2026-11-09T22:30:00+01:00",
+                "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                "eventStatus": "https://schema.org/EventScheduled",
+                "location": {
+                    "@type": "Place",
+                    "name": "Auditoire Agora 1",
+                    "address": { "@type": "PostalAddress", "addressLocality": "Louvain-la-Neuve", "postalCode": "1348", "addressCountry": "BE" }
+                },
+                "organizer": { "@id": "#organisation" },
+                "offers": { "@type": "Offer", "url": "https://www.tickettailor.com/events/fuckupnightsbrussels/2479124" }
+            },
+            {
+                "@type": "Event",
+                "name": "Business Talk avec Félix Goor",
+                "description": "Interview gratuite et interactive sur l'aventure entrepreneuriale de Félix Goor, cofondateur de Golden Hour Nivelles et Chez Francis.",
+                "startDate": "2026-10-14T18:30:00+02:00",
+                "endDate": "2026-10-14T21:30:00+02:00",
+                "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                "eventStatus": "https://schema.org/EventScheduled",
+                "isAccessibleForFree": true,
+                "location": {
+                    "@type": "Place",
+                    "name": "Brasse-Temps",
+                    "address": { "@type": "PostalAddress", "addressLocality": "Louvain-la-Neuve", "addressCountry": "BE" }
+                },
+                "organizer": { "@id": "#organisation" }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
+    <!-- Icônes : Font Awesome Free 6.5 (CC BY 4.0), intégrées en SVG pour éviter ~290 Ko de police d’icônes -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="i-location-dot" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></symbol><symbol id="i-envelope" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></symbol><symbol id="i-calendar-days" viewBox="0 0 448 512"><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></symbol><symbol id="i-comments" viewBox="0 0 640 512"><path d="M208 352c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176c0 38.6 14.7 74.3 39.6 103.4c-3.5 9.4-8.7 17.7-14.2 24.7c-4.8 6.2-9.7 11-13.3 14.3c-1.8 1.6-3.3 2.9-4.3 3.7c-.5 .4-.9 .7-1.1 .8l-.2 .2 0 0 0 0C1 327.2-1.4 334.4 .8 340.9S9.1 352 16 352c21.8 0 43.8-5.6 62.1-12.5c9.2-3.5 17.8-7.4 25.3-11.4C134.1 343.3 169.8 352 208 352zM448 176c0 112.3-99.1 196.9-216.5 207C255.8 457.4 336.4 512 432 512c38.2 0 73.9-8.7 104.7-23.9c7.5 4 16 7.9 25.2 11.4c18.3 6.9 40.3 12.5 62.1 12.5c6.9 0 13.1-4.5 15.2-11.1c2.1-6.6-.2-13.8-5.8-17.9l0 0 0 0-.2-.2c-.2-.2-.6-.4-1.1-.8c-1-.8-2.5-2-4.3-3.7c-3.6-3.3-8.5-8.1-13.3-14.3c-5.5-7-10.7-15.4-14.2-24.7c24.9-29 39.6-64.7 39.6-103.4c0-92.8-84.9-168.9-192.6-175.5c.4 5.1 .6 10.3 .6 15.5z"/></symbol><symbol id="i-paper-plane" viewBox="0 0 512 512"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480V396.4c0-4 1.5-7.8 4.2-10.7L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></symbol><symbol id="i-bullhorn" viewBox="0 0 512 512"><path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"/></symbol><symbol id="i-users" viewBox="0 0 640 512"><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/></symbol><symbol id="i-chart-line" viewBox="0 0 512 512"><path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/></symbol><symbol id="i-truck" viewBox="0 0 640 512"><path d="M48 0C21.5 0 0 21.5 0 48V368c0 26.5 21.5 48 48 48H64c0 53 43 96 96 96s96-43 96-96H384c0 53 43 96 96 96s96-43 96-96h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V288 256 237.3c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7H416V48c0-26.5-21.5-48-48-48H48zM416 160h50.7L544 237.3V256H416V160zM112 416a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm368-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></symbol><symbol id="i-cloud-arrow-up" viewBox="0 0 640 512"><path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z"/></symbol><symbol id="i-circle-check" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></symbol><symbol id="i-chevron-left" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></symbol><symbol id="i-chevron-right" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></symbol><symbol id="i-tree" viewBox="0 0 448 512"><path d="M210.6 5.9L62 169.4c-3.9 4.2-6 9.8-6 15.5C56 197.7 66.3 208 79.1 208H104L30.6 281.4c-4.2 4.2-6.6 10-6.6 16C24 309.9 34.1 320 46.6 320H80L5.4 409.5C1.9 413.7 0 419 0 424.5c0 13 10.5 23.5 23.5 23.5H192v32c0 17.7 14.3 32 32 32s32-14.3 32-32V448H424.5c13 0 23.5-10.5 23.5-23.5c0-5.5-1.9-10.8-5.4-15L368 320h33.4c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16L344 208h24.9c12.7 0 23.1-10.3 23.1-23.1c0-5.7-2.1-11.3-6-15.5L237.4 5.9C234 2.1 229.1 0 224 0s-10 2.1-13.4 5.9z"/></symbol><symbol id="i-bars" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></symbol><symbol id="i-xmark" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></symbol><symbol id="i-clock" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></symbol><symbol id="i-user-plus" viewBox="0 0 640 512"><path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></symbol><symbol id="i-instagram" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></symbol><symbol id="i-newspaper" viewBox="0 0 512 512"><path d="M96 96c0-35.3 28.7-64 64-64H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H80c-44.2 0-80-35.8-80-80V128c0-17.7 14.3-32 32-32s32 14.3 32 32V400c0 8.8 7.2 16 16 16s16-7.2 16-16V96zm64 24v80c0 13.3 10.7 24 24 24H296c13.3 0 24-10.7 24-24V120c0-13.3-10.7-24-24-24H184c-13.3 0-24 10.7-24 24zm208-8c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H384c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H384c-8.8 0-16 7.2-16 16zM160 304c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16z"/></symbol></svg>
+
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
 
     <!-- NAVIGATION -->
-    <nav class="navbar">
-        <div class="nav-links">
-            <a href="#accueil">Accueil</a>
-            <a href="#team">Team</a>
+    <header class="navbar">
+        <a href="#accueil" class="nav-brand" title="Retour en haut de page">
+            <img src="img/logo-startgen-lln-96.webp" width="36" height="36" alt="">
+            <span>StartGen <strong>LLN</strong></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+            <svg class="icon icon-open" aria-hidden="true"><use href="#i-bars"/></svg>
+            <svg class="icon icon-close" aria-hidden="true"><use href="#i-xmark"/></svg>
+            <span class="nav-toggle-label">Menu</span>
+        </button>
+        <nav id="menu-principal" class="nav-links" aria-label="Navigation principale">
+            <a href="#events">Événements</a>
             <a href="#actualites">Actualités</a>
-            <a href="#events">Events</a>
+            <a href="#team">Qui sommes-nous ?</a>
             <a href="#intervenants">Intervenants</a>
             <a href="#photos">Photos</a>
-            <a href="#agenda-reseau">Agenda Réseau</a>
+            <a href="#agenda-reseau">Agenda réseau</a>
             <a href="#contact">Contact</a>
-        </div>
-    </nav>
+            <a href="#candidature" class="nav-cta">Rejoins l'équipe</a>
+        </nav>
+    </header>
 
-    <!-- HERO SECTION -->
+    <main id="contenu">
+
+    <!-- HERO -->
     <section id="accueil" class="hero">
-        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <img src="logo-startgen-lln.png" alt="Logo StartGen Louvain-la-Neuve étudiant entrepreneur" class="hero-logo">
-            <h1><span class="yellow-text">StartGen Louvain-la-Neuve</span></h1>
+            <img src="img/logo-startgen-lln-280.webp"
+                 srcset="img/logo-startgen-lln-160.webp 160w, img/logo-startgen-lln-280.webp 280w, img/logo-startgen-lln-420.webp 420w"
+                 sizes="(max-width: 768px) 88px, 140px"
+                 width="140" height="140" fetchpriority="high"
+                 alt="Logo StartGen Louvain-la-Neuve" class="hero-logo">
+            <p class="hero-eyebrow">StartGen Louvain-la-Neuve</p>
+            <h1>Événements d'entrepreneuriat étudiant à <span class="yellow-text nowrap">Louvain-la-Neuve</span></h1>
+            <p class="hero-lead">Fuckup Nights, talks d'entrepreneurs et soirées networking&nbsp;: des événements organisés par des étudiants, pour les étudiants de Louvain-la-Neuve, pour donner le goût d'entreprendre.</p>
+            <a href="#events" class="next-date">
+                <svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg>
+                <span><strong>Prochain événement à LLN&nbsp;:</strong> mercredi 3 mars 2027 <em>(date prévue)</em></span>
+            </a>
             <div class="hero-buttons">
-                <a href="#actualites" class="btn btn-white">Actualités du StartGen &rarr;</a>
-                <a href="#candidature" class="btn btn-white">Postule pour notre équipe ! &rarr;</a>
-                <a href="#contact" class="btn btn-white">Nos contacts ! &rarr;</a>
+                <a href="#events" class="btn btn-yellow">Voir nos événements <span aria-hidden="true">&rarr;</span></a>
+                <a href="#candidature" class="btn btn-white">Postule pour notre équipe <span aria-hidden="true">&rarr;</span></a>
+                <a href="#contact" class="btn btn-outline-white">Nos contacts</a>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT US -->
-    <section id="team" class="about-section">
+    <!-- ÉVÉNEMENTS À LOUVAIN-LA-NEUVE -->
+    <section id="events" class="events-section" aria-labelledby="events-title">
         <div class="container">
-            <h2 class="yellow-text">About us</h2>
-            <p>Nous faisons partie de l'ASBL "Les Jeunes Entreprises" (LJE).<br>
-            Notre objectif : donner le goût d'entreprendre aux jeunes en région louvaniste. Le projet est encore jeune, mais plein d'ambition : créer une véritable communauté étudiante tournée vers l'avenir, l'audace et l'impact.</p>
+            <h2 id="events-title">Nos événements à Louvain-la-Neuve</h2>
+            <p class="events-intro">Au sein de StartGen Louvain-la-Neuve, nous concevons des événements qui rassemblent, inspirent et connectent nos intervenants aux jeunes talents&nbsp;: rencontres d'entrepreneurs, conférences inspirantes, ateliers pratiques ou soirées exclusives. Chaque moment est pensé pour éveiller l'esprit d'initiative et donner aux étudiants l'élan d'entreprendre.</p>
+
+            <h3 class="events-subtitle"><span class="tag tag-lln">LLN</span> Prochaines dates</h3>
+            <p class="events-note">Les dates «&nbsp;prévues&nbsp;» sont réservées dans notre agenda&nbsp;: le programme et l'inscription sont publiés dès qu'ils sont confirmés.</p>
+            <div class="events-grid lln-upcoming">
+                <!--
+                  Pour annoncer la prochaine date, copier ce modèle ici (le message « Pas encore de date » disparaît tout seul) :
+                  <article class="event-card" data-date="AAAA-MM-JJ">
+                      <span class="tag tag-lln">StartGen LLN</span>
+                      <h4>Nom de l'événement</h4>
+                      <p class="event-meta"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="AAAA-MM-JJTHH:MM">jour mois année à HHhMM</time></p>
+                      <p class="event-meta"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Lieu, Louvain-la-Neuve</p>
+                      <p>Description courte.</p>
+                      <a href="LIEN-BILLETTERIE" target="_blank" rel="noopener" class="btn btn-yellow">S'inscrire à l'événement &rarr;</a>
+                  </article>
+                -->
+                <article class="event-card" data-date="2027-03-03">
+                    <span class="tag tag-lln">StartGen LLN · date prévue</span>
+                    <h4>Événement StartGen LLN</h4>
+                    <p class="event-meta"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2027-03-03">Mercredi 3 mars 2027</time></p>
+                    <p class="event-meta"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Louvain-la-Neuve · lieu à confirmer</p>
+                    <p>Bloque déjà la date ! Le thème, les intervenants, le lieu et le lien d'inscription seront annoncés sur notre Instagram.</p>
+                    <a href="https://www.instagram.com/startgen_lln/" target="_blank" rel="noopener" class="btn btn-dark"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg> Être prévenu sur Instagram</a>
+                </article>
+                <article class="event-card" data-date="2027-04-07">
+                    <span class="tag tag-lln">StartGen LLN · date prévue</span>
+                    <h4>Bien communiquer quand on est entrepreneur</h4>
+                    <p class="event-meta"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2027-04-07">Mercredi 7 avril 2027</time></p>
+                    <p class="event-meta"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Louvain-la-Neuve · lieu à confirmer</p>
+                    <p>Comment se donner les moyens d'avoir une bonne communication quand on lance son projet&nbsp;? Programme et inscriptions annoncés sur Instagram.</p>
+                    <a href="https://www.instagram.com/startgen_lln/" target="_blank" rel="noopener" class="btn btn-dark"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg> Être prévenu sur Instagram</a>
+                </article>
+                <div class="no-date">
+                    <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+                    <div>
+                        <p class="no-date-title">Pas encore de nouvelle date confirmée à Louvain-la-Neuve.</p>
+                        <p>La prochaine soirée sera annoncée ici et sur notre Instagram, avec le lien d'inscription. En attendant, jette un œil à <a href="#agenda-reseau">l'agenda des autres antennes StartGen</a>.</p>
+                        <a href="https://www.instagram.com/startgen_lln/" target="_blank" rel="noopener" class="btn btn-dark">
+                            <svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg> Suivre @startgen_lln
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="events-subtitle">Événements passés</h3>
+            <div class="events-grid lln-past">
+                <article class="event-card is-past" data-date="2026-11-09">
+                    <span class="tag tag-past">Passé</span>
+                    <h4>Fuckup Night Louvain-la-Neuve</h4>
+                    <p class="event-meta"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2026-11-09T18:30">Lundi 9 novembre 2026, 18h30 – 22h30</time></p>
+                    <p class="event-meta"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Auditoire Agora 1, 1348 Louvain-la-Neuve</p>
+                    <p>Les échecs font partie du parcours entrepreneurial, mais rares sont ceux qui osent les raconter en toute transparence. La toute première Fuckup Night de Louvain-la-Neuve, organisée avec FuckUp Nights Brussels &amp; Wallonia&nbsp;: des parcours inspirants, des erreurs instructives et une bonne dose d'authenticité.</p>
+                    <div class="event-actions">
+                        <a href="#photos-fuckup" class="btn btn-dark">Voir les photos <span aria-hidden="true">&rarr;</span></a>
+                        <a href="#avis" class="btn btn-outline-dark">Tu y étais ? Donne ton avis</a>
+                    </div>
+                </article>
+                <article class="event-card is-past" data-date="2026-10-14">
+                    <span class="tag tag-past">Passé</span>
+                    <h4>Business Talk avec Félix Goor</h4>
+                    <p class="event-meta"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2026-10-14T18:30">Mercredi 14 octobre 2026, 18h30 – 21h30</time></p>
+                    <p class="event-meta"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Brasse-Temps, Louvain-la-Neuve</p>
+                    <p>Une interview 100&nbsp;% gratuite et interactive sur l'aventure entrepreneuriale de Félix Goor, cofondateur de Golden Hour Nivelles et Chez Francis. Le public a pu échanger avec lui et poser toutes ses questions.</p>
+                    <div class="event-actions">
+                        <a href="#photos-business-talk" class="btn btn-dark">Voir les photos <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 
-    <!-- QUOTE -->
+    <!-- ACTUALITÉS -->
+    <section id="actualites" class="actualites-section" aria-labelledby="actu-title">
+        <div class="container">
+            <div class="actu-banner">
+                <div class="actu-banner-icon"><svg class="icon" aria-hidden="true"><use href="#i-newspaper"/></svg></div>
+                <div class="actu-banner-text">
+                    <h2 id="actu-title">Actualités du StartGen LLN</h2>
+                    <p>Ce qui se passe en ce moment chez StartGen Louvain-la-Neuve.</p>
+                </div>
+            </div>
+            <div class="actu-grid">
+                <article class="actu-card">
+                    <span class="actu-card-badge">Retour sur</span>
+                    <div class="actu-card-content">
+                        <svg class="icon actu-card-icon" aria-hidden="true"><use href="#i-comments"/></svg>
+                        <h3>Merci pour la Fuckup Night !</h3>
+                        <p class="actu-card-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> 9 novembre 2026</p>
+                        <p>La toute première Fuckup Night de Louvain-la-Neuve a rempli l'Auditoire Agora 1. Ton retour nous aide à préparer la suite&nbsp;: dis-nous ce que tu as aimé et ce qu'on peut améliorer.</p>
+                        <div class="actu-actions">
+                            <a href="#avis" class="btn btn-yellow">Donner mon avis <span aria-hidden="true">&rarr;</span></a>
+                            <a href="#photos-fuckup" class="btn btn-outline-white">Voir les photos</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="actu-card">
+                    <span class="actu-card-badge badge-recruit">On recrute</span>
+                    <div class="actu-card-content">
+                        <svg class="icon actu-card-icon" aria-hidden="true"><use href="#i-user-plus"/></svg>
+                        <h3>Rejoins l'équipe StartGen LLN</h3>
+                        <p>Tu as envie d'organiser des événements pour les étudiants de Louvain-la-Neuve&nbsp;? On cherche des profils motivés dans quatre départements.</p>
+                        <ul class="actu-card-departments">
+                            <li class="dept-tag">Communication</li>
+                            <li class="dept-tag">RH</li>
+                            <li class="dept-tag">Financier</li>
+                            <li class="dept-tag">Logistique</li>
+                        </ul>
+                        <a href="#candidature" class="btn btn-yellow">Postuler <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUI SOMMES-NOUS -->
+    <section id="team" class="about-section" aria-labelledby="team-title">
+        <div class="container">
+            <h2 id="team-title" class="yellow-text">Qui sommes-nous ?</h2>
+            <p>StartGen Louvain-la-Neuve est une équipe d'étudiants qui fait partie de l'ASBL «&nbsp;Les Jeunes Entreprises&nbsp;» (LJE).<br>
+            Notre objectif&nbsp;: donner le goût d'entreprendre aux jeunes de Louvain-la-Neuve et de la région louvaniste. Le projet est encore jeune, mais plein d'ambition&nbsp;: créer une véritable communauté étudiante tournée vers l'avenir, l'audace et l'impact.</p>
+        </div>
+    </section>
+
+    <!-- CITATION -->
     <section class="quote-section">
         <div class="container">
-            <p class="quote">"Une aventure entrepreneuriale lancée par des étudiants, pour les étudiants."</p>
+            <p class="quote">«&nbsp;Une aventure entrepreneuriale lancée par des étudiants, pour les étudiants.&nbsp;»</p>
         </div>
     </section>
 
     <!-- UNE INITIATIVE DES LJE -->
-    <section class="initiative-section">
+    <section class="initiative-section" aria-labelledby="lje-title">
         <div class="container initiative-grid">
             <div class="initiative-logo">
-                <img src="logo-startgen-lln.png" alt="Logo initiative LJE StartGen Louvain-la-Neuve" class="initiative-logo-img">
+                <img src="img/logo-startgen-lln-420.webp"
+                     srcset="img/logo-startgen-lln-280.webp 280w, img/logo-startgen-lln-420.webp 420w, img/logo-startgen-lln-560.webp 560w"
+                     sizes="(max-width: 768px) 200px, 280px"
+                     width="280" height="280" loading="lazy" decoding="async"
+                     alt="Logo StartGen LLN, une initiative des LJE" class="initiative-logo-img">
             </div>
             <div class="initiative-text">
-                <h2>Une initiative de LJE</h2>
-                <p>En 2025, LJE (Les Jeunes Entreprises) décident de lancer les différentes StartGen, chacune est indépendante des autres mais nous poursuivons tous le même objectif : promouvoir l'esprit d'entreprendre chez les jeunes de notre région.</p>
+                <h2 id="lje-title">Une initiative des LJE</h2>
+                <p>En 2025, LJE (Les Jeunes Entreprises) lance les différentes StartGen. Chacune est indépendante des autres, mais nous poursuivons tous le même objectif&nbsp;: promouvoir l'esprit d'entreprendre chez les jeunes de notre région.</p>
             </div>
         </div>
     </section>
 
-    <!-- LOUVAIN-LA-NEUVE SECTION -->
-    <section class="city-section">
-        <div class="city-overlay">
-            <div class="city-content">
-                <h2>Louvain-la-Neuve</h2>
-                <p>Le projet StartGen existe dans de nombreuses villes telles que Liège, Mons, Namur, Louvain-La-Neuve, etc.</p>
-            </div>
+    <!-- LOUVAIN-LA-NEUVE -->
+    <section class="city-section" aria-labelledby="city-title">
+        <div class="city-content">
+            <h2 id="city-title">StartGen à Louvain-la-Neuve</h2>
+            <p>Le projet StartGen existe dans plusieurs villes de Wallonie&nbsp;: Liège, Mons, Namur… et Louvain-la-Neuve. Ici, on fait vivre l'entrepreneuriat étudiant au cœur de la ville universitaire.</p>
         </div>
         <div class="city-image-container">
-            <img src="lln-ville.jpg" alt="Vue aérienne de Louvain-la-Neuve, ville étudiante et entrepreneuriale" class="city-image">
-        </div>
-    </section>
-
-    <!-- ÉVÉNEMENTS -->
-    <section id="events" class="events-section">
-        <div class="container">
-            <h2>Nos événements à venir :</h2>
-            <p class="events-intro">Au sein de StartGen Louvain-la-Neuve, nous concevons des événements qui rassemblent, inspirent et connectent nos intervenants aux jeunes talents. Rencontres d'entrepreneurs, conférences inspirantes, ateliers pratiques ou soirées exclusives : chaque moment est pensé pour éveiller l'esprit d'initiative et donner aux jeunes l'élan d'entreprendre.</p>
-            
-            <div class="events-grid">
-                <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-icon"><i class="fas fa-calendar-check"></i></div>
-                    <h3>Fuckup Night</h3>
-                    <hr>
-                    <p>Les échecs font partie du parcours entrepreneurial, mais rares sont ceux qui osent les raconter en toute transparence. C’est exactement pour ça qu’on vous donne rendez-vous pour la toute première Fuckup Night à Louvain-la-Neuve ! 
-Au programme : des parcours inspirants, des erreurs instructives et une bonne dose d’authenticité. </p>
-                    <p class="event-date">Date : 9 Novembre 2026 à 18h30</p>
-                    <p style="margin-bottom: 15px; color: #aaa; font-size: 14px;"><i class="fas fa-map-marker-alt"></i> Agora 12, Louvain-la-Neuve</p>
-                    <a href="https://www.tickettailor.com/events/fuckupnightsbrussels/2479124" target="_blank" class="btn btn-yellow" style="padding: 10px 20px; font-size: 14px;">S'inscrire à l'événement &rarr;</a>
-                </div>
-            </div>
+            <picture>
+                <source type="image/avif" srcset="img/lln-ville-480.avif 480w, img/lln-ville-800.avif 800w, img/lln-ville-1100.avif 1100w" sizes="(max-width: 620px) 90vw, 550px">
+                <source type="image/webp" srcset="img/lln-ville-480.webp 480w, img/lln-ville-800.webp 800w, img/lln-ville-1100.webp 1100w" sizes="(max-width: 620px) 90vw, 550px">
+                <img src="img/lln-ville-800.jpg" width="1100" height="611" loading="lazy" decoding="async"
+                     alt="Vue aérienne de Louvain-la-Neuve, ville étudiante" class="city-image">
+            </picture>
         </div>
     </section>
 
     <!-- INTERVENANTS -->
-    <section id="intervenants" style="padding: 80px 20px; background: #1E1E1E; border-top: 1px solid #333;">
+    <section id="intervenants" class="dark-section" aria-labelledby="intervenants-title">
         <div class="container">
-            <h2 style="text-align: center; font-size: 38px; color: #FFF700;">Les intervenants que nous avons déjà eus</h2>
-            <p style="text-align: center; color: #aaa; margin-top: 15px; font-size: 16px;">Découvrez les professionnels et entrepreneurs qui ont partagé leur parcours et leur expertise lors de nos précédents événements.</p>
-            
-            <div class="intervenants-grid">
-                <div class="intervenant-card">
-                    <img src="photo-felix-goor.jpg" alt="Félix Goor" class="intervenant-img">
+            <h2 id="intervenants-title" class="section-title">Les entrepreneurs déjà venus à nos événements</h2>
+            <p class="section-intro">Découvre les professionnels et entrepreneurs qui ont partagé leur parcours et leur expertise lors de nos précédents événements.</p>
+
+            <ul class="intervenants-grid">
+                <li class="intervenant-card">
+                    <img src="img/portrait-felix-goor-160.webp" srcset="img/portrait-felix-goor-160.webp 1x, img/portrait-felix-goor-240.webp 1.5x, img/portrait-felix-goor-240.webp 2x" width="80" height="80" loading="lazy" decoding="async" alt="Portrait de Félix Goor" class="intervenant-img">
                     <h3>Félix Goor</h3>
-                    <p>Cofondateur Golden Hour Nivelles et Chez Francis</p>
-                </div>
-                <div class="intervenant-card">
-                    <img src="Anne-France Pottier.png" alt="Anne-France Pottier, co-fondatrice de la Smile School" class="intervenant-img">
+                    <p>Cofondateur de Golden Hour Nivelles et Chez Francis</p>
+                </li>
+                <li class="intervenant-card">
+                    <img src="img/portrait-anne-france-pottier-160.webp" srcset="img/portrait-anne-france-pottier-160.webp 1x, img/portrait-anne-france-pottier-240.webp 2x" width="80" height="80" loading="lazy" decoding="async" alt="Portrait d'Anne-France Pottier" class="intervenant-img">
                     <h3>Anne-France Pottier</h3>
                     <p>Co-fondatrice de la Smile School</p>
-                </div>
-                <div class="intervenant-card">
-                    <img src="David Dieu.png" alt="David Dieu, fondateur de Vertical View" class="intervenant-img">
+                </li>
+                <li class="intervenant-card">
+                    <img src="img/portrait-david-dieu-160.webp" srcset="img/portrait-david-dieu-160.webp 1x, img/portrait-david-dieu-240.webp 2x" width="80" height="80" loading="lazy" decoding="async" alt="Portrait de David Dieu" class="intervenant-img">
                     <h3>David Dieu</h3>
                     <p>Fondateur de Vertical View et créateur de contenu</p>
-                </div>
-                <div class="intervenant-card">
-                    <img src="Morgane Dawance.png" alt="Morgann Dawance, CEO de Leadix" class="intervenant-img">
+                </li>
+                <li class="intervenant-card">
+                    <img src="img/portrait-morgane-dawance-160.webp" srcset="img/portrait-morgane-dawance-160.webp 1x, img/portrait-morgane-dawance-240.webp 2x" width="80" height="80" loading="lazy" decoding="async" alt="Portrait de Morgann Dawance" class="intervenant-img">
                     <h3>Morgann Dawance</h3>
                     <p>Co-fondateur et CEO de Leadix</p>
-                </div>
-                <div class="intervenant-card">
-                    <img src="Johane Baty.png" alt="Johane Baty, administratrice gérante Marjalou Invest" class="intervenant-img">
+                </li>
+                <li class="intervenant-card">
+                    <img src="img/portrait-johane-baty-160.webp" srcset="img/portrait-johane-baty-160.webp 1x, img/portrait-johane-baty-240.webp 2x" width="80" height="80" loading="lazy" decoding="async" alt="Portrait de Johane Baty" class="intervenant-img">
                     <h3>Johane Baty</h3>
-                    <p>Administratrice gérante Marjalou Invest et Coordinatrice LJE</p>
-                </div>
-                <div class="intervenant-card">
-                    <img src="Maxime Cuvelier.png" alt="Maxime Cuvelier, fondateur de New Borne et Ancre" class="intervenant-img">
+                    <p>Administratrice gérante de Marjalou Invest et coordinatrice LJE</p>
+                </li>
+                <li class="intervenant-card">
+                    <img src="img/portrait-maxime-cuvelier-160.webp" srcset="img/portrait-maxime-cuvelier-160.webp 1x, img/portrait-maxime-cuvelier-240.webp 2x" width="80" height="80" loading="lazy" decoding="async" alt="Portrait de Maxime Cuvelier" class="intervenant-img">
                     <h3>Maxime Cuvelier</h3>
-                    <p>Fondateur de New Borne & Ancre</p>
-                </div>
-                <div class="intervenant-card">
-                    <img src="Véronique Monnaie.png" alt="Véronique Monnaie, analyste chez Wallonie Entreprendre" class="intervenant-img">
+                    <p>Fondateur de New Borne &amp; Ancre</p>
+                </li>
+                <li class="intervenant-card">
+                    <img src="img/portrait-veronique-monnaie-160.webp" srcset="img/portrait-veronique-monnaie-160.webp 1x, img/portrait-veronique-monnaie-240.webp 2x" width="80" height="80" loading="lazy" decoding="async" alt="Portrait de Véronique Monnaie" class="intervenant-img">
                     <h3>Véronique Monnaie</h3>
                     <p>Analyste prêts/garantie chez Wallonie Entreprendre</p>
-                </div>
-                <div class="intervenant-card">
-                    <img src="David Lashet.png" alt="David Laschet, fondateur de HowIMetMyCofounders" class="intervenant-img">
+                </li>
+                <li class="intervenant-card">
+                    <img src="img/portrait-david-lashet-160.webp" srcset="img/portrait-david-lashet-160.webp 1x, img/portrait-david-lashet-240.webp 2x" width="80" height="80" loading="lazy" decoding="async" alt="Portrait de David Laschet" class="intervenant-img">
                     <h3>David Laschet</h3>
-                    <p>Fondateur de HowIMetMyCofounders & créateur du Placard</p>
-                </div>
-                <div class="intervenant-card">
-                    <img src="Jesse Onema.png" alt="Jesse Onema, expert assurances chez BNP Paribas" class="intervenant-img">
+                    <p>Fondateur de HowIMetMyCofounders &amp; créateur du Placard</p>
+                </li>
+                <li class="intervenant-card">
+                    <img src="img/portrait-jesse-onema-160.webp" srcset="img/portrait-jesse-onema-160.webp 1x, img/portrait-jesse-onema-240.webp 2x" width="80" height="80" loading="lazy" decoding="async" alt="Portrait de Jesse Onema" class="intervenant-img">
                     <h3>Jesse Onema</h3>
                     <p>Expert assurances professionnelles chez BNP Paribas</p>
-                </div>
-                <div class="intervenant-card">
-                    <img src="Christelle Philippe.png" alt="Christelle Phillippe, Sales Manager chez BNP Paribas" class="intervenant-img">
-                    <h3>Christelle Phillippe</h3>
+                </li>
+                <li class="intervenant-card">
+                    <img src="img/portrait-christelle-philippe-160.webp" srcset="img/portrait-christelle-philippe-160.webp 1x, img/portrait-christelle-philippe-240.webp 2x" width="80" height="80" loading="lazy" decoding="async" alt="Portrait de Christelle Philippe" class="intervenant-img">
+                    <h3>Christelle Philippe</h3>
                     <p>Sales Manager chez BNP Paribas</p>
-                </div>
-                <div class="intervenant-card">
-                    <img src="Arnaud Fauquand.png" alt="Arnaud Fauquand, fondateur de 3Designers et 3DC" class="intervenant-img">
+                </li>
+                <li class="intervenant-card">
+                    <img src="img/portrait-arnaud-fauquand-160.webp" srcset="img/portrait-arnaud-fauquand-160.webp 1x, img/portrait-arnaud-fauquand-240.webp 2x" width="80" height="80" loading="lazy" decoding="async" alt="Portrait d'Arnaud Fauquand" class="intervenant-img">
                     <h3>Arnaud Fauquand</h3>
-                    <p>Étudiant de 21 ans, fondateur de 3Designers & 3DC</p>
-                </div>
-                <div class="intervenant-card">
-                    <img src="Evan Martin.png" alt="Evan Martin, fondateur de I3 Belgium, MEB solution et Orbyt" class="intervenant-img">
+                    <p>Étudiant de 21 ans, fondateur de 3Designers &amp; 3DC</p>
+                </li>
+                <li class="intervenant-card">
+                    <img src="img/portrait-evan-martin-160.webp" srcset="img/portrait-evan-martin-160.webp 1x, img/portrait-evan-martin-240.webp 2x" width="80" height="80" loading="lazy" decoding="async" alt="Portrait d'Evan Martin" class="intervenant-img">
                     <h3>Evan Martin</h3>
-                    <p>Fondateur I3 Belgium, MEB solution et Orbyt</p>
-                </div>
-                <div class="intervenant-card">
-                    <img src="Ritchelle.png" alt="Ritchelle, cofondatrice OHR studio" class="intervenant-img">
+                    <p>Fondateur d'I3 Belgium, MEB solution et Orbyt</p>
+                </li>
+                <li class="intervenant-card">
+                    <img src="img/portrait-ritchelle-160.webp" srcset="img/portrait-ritchelle-160.webp 1x, img/portrait-ritchelle-240.webp 2x" width="80" height="80" loading="lazy" decoding="async" alt="Portrait de Ritchelle" class="intervenant-img">
                     <h3>Ritchelle</h3>
                     <p>Cofondatrice de l'agence OHR studio</p>
-                </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PHOTOS -->
+    <section id="photos" class="dark-section photos-section" aria-labelledby="photos-title">
+        <div class="container">
+            <h2 id="photos-title" class="section-title">Nos événements en images</h2>
+            <p class="section-intro">Revis les meilleurs moments de nos derniers événements à Louvain-la-Neuve.</p>
+
+            <h3 class="photos-subtitle" id="photos-fuckup">Fuckup Night · 9 novembre 2026 · Auditoire Agora 1</h3>
+            <div class="photo-grid">
+                <picture>
+                    <source type="image/avif" srcset="img/fuckup-6337-400.avif 400w, img/fuckup-6337-700.avif 700w, img/fuckup-6337-1000.avif 1000w" sizes="(max-width: 720px) calc(100vw - 80px), (max-width: 1100px) 45vw, 340px">
+                    <source type="image/webp" srcset="img/fuckup-6337-400.webp 400w, img/fuckup-6337-700.webp 700w, img/fuckup-6337-1000.webp 1000w" sizes="(max-width: 720px) calc(100vw - 80px), (max-width: 1100px) 45vw, 340px">
+                    <img src="img/fuckup-6337-700.jpg" width="1000" height="750" loading="lazy" decoding="async" alt="Une intervenante raconte son parcours sur la scène de la Fuckup Night de Louvain-la-Neuve">
+                </picture>
+                <picture>
+                    <source type="image/avif" srcset="img/fuckup-6341-400.avif 400w, img/fuckup-6341-700.avif 700w, img/fuckup-6341-1000.avif 1000w" sizes="(max-width: 720px) calc(100vw - 80px), (max-width: 1100px) 45vw, 340px">
+                    <source type="image/webp" srcset="img/fuckup-6341-400.webp 400w, img/fuckup-6341-700.webp 700w, img/fuckup-6341-1000.webp 1000w" sizes="(max-width: 720px) calc(100vw - 80px), (max-width: 1100px) 45vw, 340px">
+                    <img src="img/fuckup-6341-700.jpg" width="1000" height="750" loading="lazy" decoding="async" alt="Un intervenant partage ses échecs devant l'Auditoire Agora 1">
+                </picture>
+                <picture>
+                    <source type="image/avif" srcset="img/fuckup-6345-400.avif 400w, img/fuckup-6345-700.avif 700w, img/fuckup-6345-1000.avif 1000w" sizes="(max-width: 720px) calc(100vw - 80px), (max-width: 1100px) 45vw, 340px">
+                    <source type="image/webp" srcset="img/fuckup-6345-400.webp 400w, img/fuckup-6345-700.webp 700w, img/fuckup-6345-1000.webp 1000w" sizes="(max-width: 720px) calc(100vw - 80px), (max-width: 1100px) 45vw, 340px">
+                    <img src="img/fuckup-6345-700.jpg" width="1000" height="750" loading="lazy" decoding="async" alt="Séance de questions-réponses avec le public de la Fuckup Night">
+                </picture>
+            </div>
+
+            <h3 class="photos-subtitle" id="photos-business-talk">Business Talk avec Félix Goor · 14 octobre 2026 · Brasse-Temps</h3>
+            <div class="photo-grid">
+                <picture>
+                    <source type="image/avif" srcset="img/event-6231-400.avif 400w, img/event-6231-700.avif 700w, img/event-6231-1000.avif 1000w" sizes="(max-width: 720px) calc(100vw - 80px), (max-width: 1100px) 45vw, 340px">
+                    <source type="image/webp" srcset="img/event-6231-400.webp 400w, img/event-6231-700.webp 700w, img/event-6231-1000.webp 1000w" sizes="(max-width: 720px) calc(100vw - 80px), (max-width: 1100px) 45vw, 340px">
+                    <img src="img/event-6231-700.jpg" width="1000" height="750" loading="lazy" decoding="async" alt="Félix Goor interviewé sur scène lors du Business Talk StartGen LLN au Brasse-Temps">
+                </picture>
+                <picture>
+                    <source type="image/avif" srcset="img/event-0392-400.avif 400w, img/event-0392-700.avif 700w, img/event-0392-1000.avif 1000w" sizes="(max-width: 720px) calc(100vw - 80px), (max-width: 1100px) 45vw, 340px">
+                    <source type="image/webp" srcset="img/event-0392-400.webp 400w, img/event-0392-700.webp 700w, img/event-0392-1000.webp 1000w" sizes="(max-width: 720px) calc(100vw - 80px), (max-width: 1100px) 45vw, 340px">
+                    <img src="img/event-0392-700.jpg" width="1000" height="750" loading="lazy" decoding="async" alt="Interview de Félix Goor sur la scène du Business Talk StartGen LLN">
+                </picture>
+                <picture>
+                    <source type="image/avif" srcset="img/event-6229-400.avif 400w, img/event-6229-700.avif 700w, img/event-6229-1000.avif 1000w" sizes="(max-width: 720px) calc(100vw - 80px), (max-width: 1100px) 45vw, 340px">
+                    <source type="image/webp" srcset="img/event-6229-400.webp 400w, img/event-6229-700.webp 700w, img/event-6229-1000.webp 1000w" sizes="(max-width: 720px) calc(100vw - 80px), (max-width: 1100px) 45vw, 340px">
+                    <img src="img/event-6229-700.jpg" width="1000" height="750" loading="lazy" decoding="async" alt="Le public du Business Talk avec Félix Goor au Brasse-Temps">
+                </picture>
             </div>
         </div>
     </section>
 
-<!-- PHOTOS -->
-    <section id="photos" style="padding: 80px 20px; background: #1E1E1E; text-align: center; border-top: 1px solid #333;">
-        <div class="container">
-            <h2 class="yellow-text" style="font-size: 38px; margin-bottom: 10px;">Nos événements en images</h2>
-            <p style="color: #aaa; font-size: 16px; margin-bottom: 40px;">Revivez les meilleurs moments de nos éditions précédentes.</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <img src="IMG_6231.jpg" alt="Intervenants StartGen LLN sur scène" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4/3; border: 1px solid #333; transition: transform 0.3s ease;">
-                <img src="IMG_0392.jpg" alt="Public et panel StartGen LLN" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4/3; border: 1px solid #333; transition: transform 0.3s ease;">
-                <img src="IMG_6229.jpg" alt="Discussion événement StartGen" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4/3; border: 1px solid #333; transition: transform 0.3s ease;">
-            </div>
-        </div>
-    </section>
-    <!-- INSTAGRAM SECTION -->
-    <section class="instagram-section">
+    <!-- INSTAGRAM -->
+    <section class="instagram-section" aria-labelledby="insta-title">
+        <picture class="instagram-bg">
+            <source type="image/avif" srcset="img/instagram-bg-640.avif 640w, img/instagram-bg-1280.avif 1280w" sizes="100vw">
+            <source type="image/webp" srcset="img/instagram-bg-640.webp 640w, img/instagram-bg-1280.webp 1280w" sizes="100vw">
+            <img src="img/instagram-bg-1280.jpg" width="1280" height="853" loading="lazy" decoding="async" alt="">
+        </picture>
         <div class="instagram-content">
             <div class="instagram-left">
-                <h2>Follow us on Instagram</h2>
-                <p><p>Rejoins notre communauté sur Instagram pour ne rien manquer ! On y partage un max de vidéos de nos événements, des moments exclusifs dans les coulisses de l'équipe, et des formats décalés pour te donner envie de nous rejoindre avec le sourire.</p></p>
-                <a href="#candidature" class="btn btn-outline-white">en savoir plus sur la section communication &rarr;</a>
+                <h2 id="insta-title">Suis-nous sur Instagram</h2>
+                <p>Rejoins notre communauté sur Instagram pour ne rien manquer ! On y annonce nos prochains événements et on partage un max de vidéos, des moments exclusifs dans les coulisses de l'équipe, et des formats décalés pour te donner envie de nous rejoindre avec le sourire.</p>
+                <a href="#candidature" class="btn btn-outline-white">En savoir plus sur la section communication <span aria-hidden="true">&rarr;</span></a>
             </div>
             <div class="instagram-right">
                 <div class="stat">
                     <span class="stat-number">321</span>
-                    <span class="stat-label">Nombre de followers</span>
+                    <span class="stat-label">followers</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number">600</span>
-                    <span class="stat-label">Objectif pour Juin 2027</span>
+                    <span class="stat-label">notre objectif pour juin 2027</span>
                 </div>
-                <a href="https://www.instagram.com/startgen_lln?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn btn-yellow">clique ici pour nous suivre &rarr;</a>
+                <a href="https://www.instagram.com/startgen_lln/" target="_blank" rel="noopener" class="btn btn-yellow">
+                    <svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg> Suivre @startgen_lln
+                </a>
             </div>
+        </div>
+    </section>
+
+    <!-- AILLEURS EN WALLONIE -->
+    <section id="reseau" class="network-section" aria-labelledby="reseau-title">
+        <div class="container">
+            <div class="network-header">
+                <h2 id="reseau-title" class="yellow-text">Louvain-la-Neuve, c'est trop loin pour toi ?</h2>
+                <p class="network-intro">Pas de panique, le projet StartGen ne s'arrête pas à Louvain-la-Neuve ! Découvre les autres antennes StartGen de Namur, Liège et Mons et rejoins celle la plus proche de chez toi.</p>
+            </div>
+            <ul class="network-grid">
+                <li class="network-card city-namur">
+                    <img src="img/startgen-namur-180.webp" srcset="img/startgen-namur-180.webp 1x, img/startgen-namur-270.webp 2x" width="90" height="90" loading="lazy" decoding="async" alt="Logo StartGen Namur" class="network-logo">
+                    <h3>StartGen Namur</h3>
+                    <p>Rejoins l'aventure entrepreneuriale du côté de Namur et découvre leurs événements en images.</p>
+                    <div class="network-actions">
+                        <a href="https://www.instagram.com/startgen_namur/" target="_blank" rel="noopener" class="btn btn-network btn-network-outline"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg> Instagram de StartGen Namur</a>
+                        <a href="mailto:contact@startgennamur.be" class="btn btn-network"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg> Écrire à StartGen Namur</a>
+                    </div>
+                </li>
+                <li class="network-card city-liege">
+                    <img src="img/startgen-liege-180.webp" srcset="img/startgen-liege-180.webp 1x, img/startgen-liege-270.webp 2x" width="90" height="90" loading="lazy" decoding="async" alt="Logo StartGen Liège" class="network-logo">
+                    <h3>StartGen Liège</h3>
+                    <p>Rejoins l'aventure entrepreneuriale du côté de Liège et découvre leurs événements en images.</p>
+                    <div class="network-actions">
+                        <a href="https://www.instagram.com/startgen_liege/" target="_blank" rel="noopener" class="btn btn-network btn-network-outline"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg> Instagram de StartGen Liège</a>
+                        <a href="mailto:startgenliege@gmail.com" class="btn btn-network"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg> Écrire à StartGen Liège</a>
+                    </div>
+                </li>
+                <li class="network-card city-mons">
+                    <img src="img/startgen-mons-180.webp" srcset="img/startgen-mons-180.webp 1x, img/startgen-mons-270.webp 2x" width="90" height="90" loading="lazy" decoding="async" alt="Logo StartGen Mons" class="network-logo">
+                    <h3>StartGen Mons</h3>
+                    <p>Rejoins l'aventure entrepreneuriale du côté de Mons et découvre leurs événements en images.</p>
+                    <div class="network-actions">
+                        <a href="https://www.instagram.com/startgen_mons/" target="_blank" rel="noopener" class="btn btn-network btn-network-outline"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg> Instagram de StartGen Mons</a>
+                        <a href="mailto:contact@startgen-mons.be" class="btn btn-network"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg> Écrire à StartGen Mons</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- AGENDA DES AUTRES ANTENNES -->
+    <section id="agenda-reseau" class="agenda-section" aria-labelledby="agenda-title">
+        <div class="container">
+            <h2 id="agenda-title" class="section-title">Agenda des autres antennes StartGen</h2>
+            <p class="section-intro">Ces événements sont organisés par StartGen Mons, Namur et Liège, <strong>pas à Louvain-la-Neuve</strong>. Pour les détails et inscriptions, contacte directement l'antenne concernée.</p>
+
+            <h3 class="agenda-subtitle">À venir</h3>
+            <ol class="network-events-grid agenda-upcoming">
+                <li class="net-event-card city-mons" data-date="2026-11-24">
+                    <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2026-11-24">mar. 24 nov. 2026</time></p>
+                    <p class="net-event-city">StartGen Mons</p>
+                    <h4 class="net-event-title">Talk : de l'ingénierie à l'entrepreneuriat</h4>
+                    <p class="net-event-desc">En collaboration avec YEP'Tech, la JEWaC'S et le Starter Corner de l'UMONS.</p>
+                    <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> UMONS</p>
+                </li>
+                <li class="net-event-card city-namur" data-date="2026-11-25">
+                    <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2026-11-25">mer. 25 nov. 2026</time></p>
+                    <p class="net-event-city">StartGen Namur</p>
+                    <h4 class="net-event-title">FuckUp Night</h4>
+                    <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Lieu à confirmer</p>
+                </li>
+                <li class="net-event-card city-namur" data-date="2027-02-02">
+                    <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2027-02-02">mar. 2 févr. 2027</time></p>
+                    <p class="net-event-city">StartGen Namur</p>
+                    <h4 class="net-event-title">Événement (nom à confirmer)</h4>
+                    <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> BNP</p>
+                </li>
+                <li class="net-event-card city-liege" data-date="2027-02-15">
+                    <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2027-02-15">lun. 15 févr. 2027</time></p>
+                    <p class="net-event-city">StartGen Liège</p>
+                    <h4 class="net-event-title">Success Talk</h4>
+                    <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> VentureLab</p>
+                </li>
+                <li class="net-event-card city-namur" data-date="2027-03-03">
+                    <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2027-03-03">mer. 3 mars 2027</time></p>
+                    <p class="net-event-city">StartGen Namur</p>
+                    <h4 class="net-event-title">Conférence avec partenaire</h4>
+                    <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Lieu à confirmer</p>
+                </li>
+                <li class="net-event-card city-mons" data-date="2027-03-10">
+                    <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2027-03-10">mer. 10 mars 2027</time></p>
+                    <p class="net-event-city">StartGen Mons</p>
+                    <h4 class="net-event-title">FuckUp Night</h4>
+                    <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> HELHa Mons</p>
+                </li>
+                <li class="net-event-card city-mons" data-date="2027-03-31">
+                    <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2027-03-31">mer. 31 mars 2027</time></p>
+                    <p class="net-event-city">StartGen Mons</p>
+                    <h4 class="net-event-title">Pitch Challenge – Workshop</h4>
+                    <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> FUCAM</p>
+                </li>
+                <li class="net-event-card city-liege" data-date="2027-04-12">
+                    <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2027-04-12">lun. 12 avr. 2027</time></p>
+                    <p class="net-event-city">StartGen Liège</p>
+                    <h4 class="net-event-title">Start Spritz</h4>
+                    <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Lieu à confirmer</p>
+                </li>
+                <li class="net-event-card city-mons" data-date="2027-04-13">
+                    <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2027-04-13">mar. 13 avr. 2027</time></p>
+                    <p class="net-event-city">StartGen Mons</p>
+                    <h4 class="net-event-title">Conférence avec les Starter Corners de la HEH et de Condorcet</h4>
+                    <p class="net-event-desc">Communication, marketing, relation client…</p>
+                    <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Lieu à confirmer</p>
+                </li>
+                <li class="net-event-card city-namur" data-date="2027-04-27">
+                    <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2027-04-27">mar. 27 avr. 2027</time></p>
+                    <p class="net-event-city">StartGen Namur</p>
+                    <h4 class="net-event-title">Success Talk</h4>
+                    <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Lieu à confirmer</p>
+                </li>
+            </ol>
+
+            <details class="agenda-past">
+                <summary>Voir les événements passés du réseau</summary>
+                <ol class="network-events-grid agenda-past-list">
+                    <li class="net-event-card city-mons is-past" data-date="2026-11-12">
+                        <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2026-11-12">jeu. 12 nov. 2026</time></p>
+                        <p class="net-event-city">StartGen Mons</p>
+                        <h4 class="net-event-title">Soirée « Apprendre à vendre un produit »</h4>
+                        <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> FUCAM</p>
+                    </li>
+                    <li class="net-event-card city-liege is-past" data-date="2026-11-04">
+                        <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2026-11-04">mer. 4 nov. 2026</time></p>
+                        <p class="net-event-city">StartGen Liège</p>
+                        <h4 class="net-event-title">FuckUp Night</h4>
+                        <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> BNP</p>
+                    </li>
+                    <li class="net-event-card city-namur is-past" data-date="2026-10-20">
+                        <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2026-10-20">mar. 20 oct. 2026</time></p>
+                        <p class="net-event-city">StartGen Namur</p>
+                        <h4 class="net-event-title">Soirée de recrutement</h4>
+                        <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Lieu à confirmer</p>
+                    </li>
+                    <li class="net-event-card city-mons is-past" data-date="2026-10-19">
+                        <p class="net-event-date"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg> <time datetime="2026-10-19">lun. 19 oct. 2026</time></p>
+                        <p class="net-event-city">StartGen Mons</p>
+                        <h4 class="net-event-title">Jeu de networking HELHa</h4>
+                        <p class="net-event-location"><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> HELHa Mons</p>
+                    </li>
+                </ol>
+            </details>
         </div>
     </section>
 
     <!-- PARTENAIRES -->
-    <section class="partners-section">
+    <section id="partenaires" class="partners-section" aria-labelledby="partenaires-title">
         <div class="container">
-            <h2 class="yellow-text">Communication partenaire</h2>
-            <h2>Parce qu'ils nous font confiance.</h2>
-            <div class="partner-carousel">
-                <div class="partner-slide active" id="slide-0">
-                    <img src="logo-bnp.png" alt="Logo BNP Paribas Fortis partenaire StartGen">
-                    <p class="partner-name">BNP</p>
+            <p class="partners-kicker">Communication partenaire</p>
+            <h2 id="partenaires-title">Parce qu'ils nous font confiance.</h2>
+            <div class="partner-carousel" aria-roledescription="carrousel" aria-label="Partenaires actuels">
+                <div class="partner-slide active">
+                    <img src="img/logo-bnp.webp" width="250" height="70" loading="lazy" decoding="async" alt="Logo BNP Paribas Fortis">
+                    <p class="partner-name">BNP Paribas Fortis</p>
                 </div>
-                <div class="partner-slide" id="slide-1">
-                    <img src="logo-wallonie-entreprendre.png" alt="Logo Wallonie Entreprendre partenaire StartGen">
+                <div class="partner-slide">
+                    <img src="img/logo-wallonie-entreprendre.webp" width="250" height="82" loading="lazy" decoding="async" alt="Logo Wallonie Entreprendre">
                     <p class="partner-name">Wallonie Entreprendre</p>
                 </div>
-                <div class="partner-slide" id="slide-2">
-                    <img src="logo-ucm.png" alt="Logo UCM partenaire StartGen">
+                <div class="partner-slide">
+                    <img src="img/logo-ucm.webp" width="250" height="44" loading="lazy" decoding="async" alt="Logo UCM">
                     <p class="partner-name">UCM</p>
                 </div>
-                <div class="partner-slide" id="slide-3">
-                    <img src="logo-cercle.png" alt="Logo Start de Wallonie Bruxelles partenaire StartGen">
+                <div class="partner-slide">
+                    <img src="img/logo-cercle.webp" width="120" height="120" loading="lazy" decoding="async" alt="Logo Start de Wallonie Bruxelles">
                     <p class="partner-name">Start de Wallonie Bruxelles</p>
                 </div>
-                <div class="partner-slide" id="slide-4">
-                    <img src="logo-deloitte.png" alt="Logo Deloitte partenaire StartGen">
+                <div class="partner-slide">
+                    <img src="img/logo-deloitte.webp" width="250" height="102" loading="lazy" decoding="async" alt="Logo Deloitte">
                     <p class="partner-name">Deloitte</p>
                 </div>
-                <div class="partner-slide" id="slide-5">
-                    <img src="logo-lje.png" alt="Logo LJE partenaire StartGen">
+                <div class="partner-slide">
+                    <img src="img/logo-lje.webp" width="250" height="85" loading="lazy" decoding="async" alt="Logo Les Jeunes Entreprises (LJE)">
                     <p class="partner-name">LJE</p>
                 </div>
-                
-                <div class="carousel-dots">
-                    <span class="dot active" data-slide="0"></span>
-                    <span class="dot" data-slide="1"></span>
-                    <span class="dot" data-slide="2"></span>
-                    <span class="dot" data-slide="3"></span>
-                    <span class="dot" data-slide="4"></span>
-                    <span class="dot" data-slide="5"></span>
-                </div>
-                <div class="carousel-progress">
-                    <div class="carousel-progress-bar"></div>
-                </div>
-                <button class="carousel-arrow carousel-prev" aria-label="Précédent">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-arrow carousel-next" aria-label="Suivant">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                <div class="carousel-dots"></div>
+                <div class="carousel-progress"><div class="carousel-progress-bar"></div></div>
+                <button class="carousel-arrow carousel-prev" type="button" aria-label="Partenaire précédent"><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+                <button class="carousel-arrow carousel-next" type="button" aria-label="Partenaire suivant"><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
             </div>
-            <p class="partners-quote">"En soutenant StartGen, ils soutiennent l'avenir. Merci à nos partenaires d'oser avec nous."</p>
+            <p class="partners-quote">«&nbsp;En soutenant StartGen, ils soutiennent l'avenir. Merci à nos partenaires d'oser avec nous.&nbsp;»</p>
 
-            <!-- Anciens partenaires -->
             <div class="past-partners">
                 <h3>Ils nous ont aussi fait confiance</h3>
-                <div class="partner-carousel">
-                    <div class="partner-slide active" id="past-slide-0">
-                        <img src="logo-buddy.png" alt="Logo Buddy ancien partenaire">
+                <div class="partner-carousel" aria-roledescription="carrousel" aria-label="Anciens partenaires">
+                    <div class="partner-slide active">
+                        <img src="img/logo-buddy.webp" width="180" height="41" loading="lazy" decoding="async" alt="Logo Buddy">
                         <p class="partner-name">Buddy</p>
                     </div>
-                    <div class="partner-slide" id="past-slide-1">
-                        <img src="logo-redbull.png" alt="Logo Red Bull ancien partenaire">
+                    <div class="partner-slide">
+                        <img src="img/logo-redbull.webp" width="120" height="120" loading="lazy" decoding="async" alt="Logo Red Bull">
                         <p class="partner-name">Red Bull</p>
                     </div>
-                    <div class="carousel-dots">
-                        <span class="dot active" data-slide="0"></span>
-                        <span class="dot" data-slide="1"></span>
-                    </div>
-                    <div class="carousel-progress">
-                        <div class="carousel-progress-bar"></div>
-                    </div>
-                    <button class="carousel-arrow carousel-prev" aria-label="Précédent">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-arrow carousel-next" aria-label="Suivant">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+                    <div class="carousel-dots"></div>
+                    <div class="carousel-progress"><div class="carousel-progress-bar"></div></div>
+                    <button class="carousel-arrow carousel-prev" type="button" aria-label="Partenaire précédent"><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+                    <button class="carousel-arrow carousel-next" type="button" aria-label="Partenaire suivant"><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- ========================================== -->
-    <!-- STARTGEN AILLEURS EN WALLONIE -->
-    <!-- ========================================== -->
-    <section class="network-section">
+    <!-- FORMULAIRE D'AVIS -->
+    <section id="avis" class="candidature-section" aria-labelledby="avis-title">
         <div class="container">
-            <div class="network-header">
-                <h2 class="yellow-text">Louvain-la-Neuve, c'est trop loin pour toi ?</h2>
-                <p class="network-intro">Pas de panique, le projet StartGen ne s'arrête pas à Louvain-la-Neuve ! Découvre les autres Startgens de Namur, Liège et Mons et rejoins celle la plus proche de chez toi !</p>
-            </div>
-            <div class="network-grid">
-                <!-- Namur -->
-                <div class="network-card" style="--city-color:#14E62E;">
-                    <img src="image_startgen_namur.jpg" alt="StartGen Namur" class="network-logo">
-                    <h3>StartGen Namur</h3>
-                    <p>Rejoins l'aventure entrepreneuriale du côté de Namur et découvre leurs événements en images.</p>
-                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
-                        <a href="https://www.instagram.com/startgen_namur/" target="_blank" class="btn btn-network" style="background: transparent; border: 2px solid var(--city-color); color: var(--city-color);">
-                            <i class="fab fa-instagram"></i> Voir l'Instagram
-                        </a>
-                        <a href="mailto:contact@startgennamur.be" class="btn btn-network">
-                            <i class="fas fa-envelope"></i> Email
-                        </a>
-                    </div>
-                </div>
+            <h2 id="avis-title" class="yellow-text">Donne-nous ton avis !</h2>
+            <p class="form-intro">Ton retour est précieux. Dis-nous à quel événement StartGen LLN tu as participé et ce que tu en as pensé. Les avis reçus seront bientôt publiés ici.</p>
 
-                <!-- Liège -->
-                <div class="network-card" style="--city-color:#FA1E00;">
-                    <img src="image_startgen_liege.jpg" alt="StartGen Liège" class="network-logo">
-                    <h3>StartGen Liège</h3>
-                    <p>Rejoins l'aventure entrepreneuriale du côté de Liège et découvre leurs événements en images.</p>
-                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
-                        <a href="https://www.instagram.com/startgen_liege/" target="_blank" class="btn btn-network" style="background: transparent; border: 2px solid var(--city-color); color: var(--city-color);">
-                            <i class="fab fa-instagram"></i> Voir l'Instagram
-                        </a>
-                        <a href="mailto:startgenliege@gmail.com" class="btn btn-network">
-                            <i class="fas fa-envelope"></i> Email
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Mons -->
-                <div class="network-card" style="--city-color:#00D2FA;">
-                    <img src="image_startgen_mons.jpg" alt="StartGen Mons" class="network-logo">
-                    <h3>StartGen Mons</h3>
-                    <p>Rejoins l'aventure entrepreneuriale du côté de Mons et découvre leurs événements en images.</p>
-                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
-                        <a href="https://www.instagram.com/startgen_mons/" target="_blank" class="btn btn-network" style="background: transparent; border: 2px solid var(--city-color); color: var(--city-color);">
-                            <i class="fab fa-instagram"></i> Voir l'Instagram
-                        </a>
-                        <a href="mailto:contact@startgen-mons.be" class="btn btn-network">
-                            <i class="fas fa-envelope"></i> Email
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ========================================== -->
-    <!-- AGENDA DU RÉSEAU STARTGEN -->
-    <!-- ========================================== -->
-    <section id="agenda-reseau" style="padding: 80px 20px; background: #2a2a2a; border-top: 1px solid #333;">
-        <div class="container">
-            <h2 class="yellow-text" style="text-align: center; font-size: 38px;">Agenda du réseau StartGen</h2>
-            <p style="text-align: center; color: #aaa; margin-top: 15px; font-size: 16px;">Découvrez les événements à venir dans les autres StartGen à travers la Wallonie.</p>
-            
-            <div class="network-events-grid">
-                <div class="net-event-card" style="border-left-color: #00D2FA;">
-                    <div class="net-event-date" style="color: #00D2FA;"><i class="fas fa-calendar-alt"></i> 19/10/2026</div>
-                    <div class="net-event-city" style="color: #00D2FA; border: 1px solid #00D2FA;">StartGen Mons</div>
-                    <h3 class="net-event-title">Jeu de networking Helha</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> Helha Mons</div>
-                </div>
-                <div class="net-event-card" style="border-left-color: #14E62E;">
-                    <div class="net-event-date" style="color: #14E62E;"><i class="fas fa-calendar-alt"></i> 20/10/2026</div>
-                    <div class="net-event-city" style="color: #14E62E; border: 1px solid #14E62E;">StartGen Namur</div>
-                    <h3 class="net-event-title">Soirée de recrutement</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> À confirmer</div>
-                </div>
-                <div class="net-event-card" style="border-left-color: #FA1E00;">
-                    <div class="net-event-date" style="color: #FA1E00;"><i class="fas fa-calendar-alt"></i> 04/11/2026</div>
-                    <div class="net-event-city" style="color: #FA1E00; border: 1px solid #FA1E00;">StartGen Liège</div>
-                    <h3 class="net-event-title">FuckUp Night</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> BNP</div>
-                </div>
-                <div class="net-event-card" style="border-left-color: #00D2FA;">
-                    <div class="net-event-date" style="color: #00D2FA;"><i class="fas fa-calendar-alt"></i> 12/11/2026</div>
-                    <div class="net-event-city" style="color: #00D2FA; border: 1px solid #00D2FA;">StartGen Mons</div>
-                    <h3 class="net-event-title">Soirée "Apprendre à vendre un produit"</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> FUCAM</div>
-                </div>
-                <div class="net-event-card" style="border-left-color: #00D2FA;">
-                    <div class="net-event-date" style="color: #00D2FA;"><i class="fas fa-calendar-alt"></i> 24/11/2026</div>
-                    <div class="net-event-city" style="color: #00D2FA; border: 1px solid #00D2FA;">StartGen Mons</div>
-                    <h3 class="net-event-title">Talk: de l'ingénierie à l'entrepreneuriat</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> Umons</div>
-                </div>
-                <div class="net-event-card" style="border-left-color: #14E62E;">
-                    <div class="net-event-date" style="color: #14E62E;"><i class="fas fa-calendar-alt"></i> 25/11/2026</div>
-                    <div class="net-event-city" style="color: #14E62E; border: 1px solid #14E62E;">StartGen Namur</div>
-                    <h3 class="net-event-title">FuckUp Night</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> À confirmer</div>
-                </div>
-                <div class="net-event-card" style="border-left-color: #14E62E;">
-                    <div class="net-event-date" style="color: #14E62E;"><i class="fas fa-calendar-alt"></i> 02/02/2027</div>
-                    <div class="net-event-city" style="color: #14E62E; border: 1px solid #14E62E;">StartGen Namur</div>
-                    <h3 class="net-event-title">Évènement nom à confirmer</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> BNP</div>
-                </div>
-                <div class="net-event-card" style="border-left-color: #FA1E00;">
-                    <div class="net-event-date" style="color: #FA1E00;"><i class="fas fa-calendar-alt"></i> 15/02/2027</div>
-                    <div class="net-event-city" style="color: #FA1E00; border: 1px solid #FA1E00;">StartGen Liège</div>
-                    <h3 class="net-event-title">Success Talk</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> VentureLab</div>
-                </div>
-                <div class="net-event-card" style="border-left-color: #14E62E;">
-                    <div class="net-event-date" style="color: #14E62E;"><i class="fas fa-calendar-alt"></i> 03/03/2027</div>
-                    <div class="net-event-city" style="color: #14E62E; border: 1px solid #14E62E;">StartGen Namur</div>
-                    <h3 class="net-event-title">Conférence avec partenaire</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> À confirmer</div>
-                </div>
-                <div class="net-event-card" style="border-left-color: #00D2FA;">
-                    <div class="net-event-date" style="color: #00D2FA;"><i class="fas fa-calendar-alt"></i> 10/03/2027</div>
-                    <div class="net-event-city" style="color: #00D2FA; border: 1px solid #00D2FA;">StartGen Mons</div>
-                    <h3 class="net-event-title">FuckUp Night</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> Helha Mons</div>
-                </div>
-                <div class="net-event-card" style="border-left-color: #00D2FA;">
-                    <div class="net-event-date" style="color: #00D2FA;"><i class="fas fa-calendar-alt"></i> 31/03/2027</div>
-                    <div class="net-event-city" style="color: #00D2FA; border: 1px solid #00D2FA;">StartGen Mons</div>
-                    <h3 class="net-event-title">Pitch Challenge - Workshop</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> FUCAM</div>
-                </div>
-                <div class="net-event-card" style="border-left-color: #FA1E00;">
-                    <div class="net-event-date" style="color: #FA1E00;"><i class="fas fa-calendar-alt"></i> 12/04/2027</div>
-                    <div class="net-event-city" style="color: #FA1E00; border: 1px solid #FA1E00;">StartGen Liège</div>
-                    <h3 class="net-event-title">Start Spritz</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> À confirmer</div>
-                </div>
-                <div class="net-event-card" style="border-left-color: #00D2FA;">
-                    <div class="net-event-date" style="color: #00D2FA;"><i class="fas fa-calendar-alt"></i> 13/04/2027</div>
-                    <div class="net-event-city" style="color: #00D2FA; border: 1px solid #00D2FA;">StartGen Mons</div>
-                    <h3 class="net-event-title">Conférence avec Starters Corners</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> À confirmer</div>
-                </div>
-                <div class="net-event-card" style="border-left-color: #14E62E;">
-                    <div class="net-event-date" style="color: #14E62E;"><i class="fas fa-calendar-alt"></i> 27/04/2027</div>
-                    <div class="net-event-city" style="color: #14E62E; border: 1px solid #14E62E;">StartGen Namur</div>
-                    <h3 class="net-event-title">Success Talk</h3>
-                    <div class="net-event-location"><i class="fas fa-map-marker-alt"></i> À confirmer</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================================== -->
-    <!-- AVIS DE NOS ÉVÉNEMENTS -->
-    <!-- ========================================== -->
-    <section id="avis-recus" style="padding: 80px 20px; background: #1E1E1E; border-top: 1px solid #333;">
-        <div class="container">
-            <h2 class="yellow-text" style="text-align: center; font-size: 38px;">Avis de nos événements</h2>
-            <div style="background: #2a2a2a; border: 2px dashed #444; border-radius: 16px; padding: 60px 20px; margin-top: 30px; text-align: center;">
-                <i class="fas fa-comments" style="font-size: 48px; color: #555; margin-bottom: 15px;"></i>
-                <p style="color: #aaa; font-size: 18px; font-weight: 600;">Prochainement...</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================================== -->
-    <!-- FORMULAIRE D'AVIS STARTGEN LLN -->
-    <!-- ========================================== -->
-    <section id="avis" class="candidature-section" style="border-top: 1px solid #333;">
-        <div class="container">
-            <h2 class="yellow-text" style="text-align: center; font-size: 38px;">Donne-nous ton avis !</h2>
-            <p class="form-intro">Ton retour est précieux. Dis-nous à quel événement StartGen LLN tu as participé et ce que tu en as pensé.</p>
-            
             <form class="candidature-form" action="https://formsubmit.co/startgenlln@gmail.com" method="POST">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_subject" value="Nouveau feedback événement StartGen LLN">
                 <input type="hidden" name="_template" value="table">
+                <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-                <div class="form-group-title" style="margin-top: 0;">
-                    <span class="form-step-number">1</span>
+                <div class="form-group-title">
+                    <span class="form-step-number" aria-hidden="true">1</span>
                     <h3>Informations personnelles</h3>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="avis-nom">Nom <span class="required">*</span></label>
-                        <input type="text" id="avis-nom" name="nom" placeholder="Ton nom" required>
+                        <label for="avis-nom">Nom <span class="required" aria-hidden="true">*</span></label>
+                        <input type="text" id="avis-nom" name="nom" placeholder="Ton nom" autocomplete="family-name" required>
                     </div>
                     <div class="form-group">
-                        <label for="avis-prenom">Prénom <span class="required">*</span></label>
-                        <input type="text" id="avis-prenom" name="prenom" placeholder="Ton prénom" required>
+                        <label for="avis-prenom">Prénom <span class="required" aria-hidden="true">*</span></label>
+                        <input type="text" id="avis-prenom" name="prenom" placeholder="Ton prénom" autocomplete="given-name" required>
                     </div>
                 </div>
 
-<div class="form-group-title">
-                    <span class="form-step-number">2</span>
-                    <h3>Quel événement as-tu suivi ?</h3>
-                </div>
-                <div class="form-group full-width" style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; margin-left: 10px;">
-                    <label style="color: #fff; font-size: 16px; display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                        <input type="checkbox" name="evenement_suivi" value="Fuckup Night" style="width: 22px; height: 22px; cursor: pointer;"> 
-                        Fuckup Night (9 Nov. 2026)
+                <fieldset class="form-fieldset">
+                    <legend class="form-group-title">
+                        <span class="form-step-number" aria-hidden="true">2</span>
+                        <span class="legend-text">Quel événement as-tu suivi ?</span>
+                    </legend>
+                    <label class="check-option">
+                        <input type="checkbox" name="evenement_suivi" value="Fuckup Night (9 nov. 2026)">
+                        <span>Fuckup Night (9 nov. 2026)</span>
                     </label>
-                </div>
+                </fieldset>
 
                 <div class="form-group-title">
-                    <span class="form-step-number">3</span>
+                    <span class="form-step-number" aria-hidden="true">3</span>
                     <h3>Ton avis</h3>
                 </div>
-                <div class="form-group full-width">
-                    <label for="feedback">Qu'en as-tu pensé ? <span class="required">*</span></label>
+                <div class="form-group">
+                    <label for="feedback">Qu'en as-tu pensé ? <span class="required" aria-hidden="true">*</span></label>
                     <textarea id="feedback" name="feedback" rows="6" placeholder="Ce que tu as aimé, ce qu'on peut améliorer..." required></textarea>
                 </div>
+                <p class="form-note"><span class="required" aria-hidden="true">*</span> Champs obligatoires</p>
 
                 <button type="submit" class="btn btn-submit">
                     <span>Envoyer mon avis</span>
-                    <i class="fas fa-paper-plane"></i>
+                    <svg class="icon" aria-hidden="true"><use href="#i-paper-plane"/></svg>
                 </button>
             </form>
         </div>
     </section>
 
     <!-- FORMULAIRE DE CANDIDATURE -->
-    <section id="candidature" class="candidature-section">
+    <section id="candidature" class="candidature-section candidature-join" aria-labelledby="candidature-title">
         <div class="container">
-            <img src="logo-startgen-lln.png" alt="Logo StartGen Louvain-la-Neuve candidature" class="form-logo">
-            <h2 class="yellow-text">Rejoins notre équipe !</h2>
+            <img src="img/logo-startgen-lln-160.webp" srcset="img/logo-startgen-lln-160.webp 1x, img/logo-startgen-lln-280.webp 2x" width="90" height="90" loading="lazy" decoding="async" alt="" class="form-logo">
+            <h2 id="candidature-title" class="yellow-text">Rejoins l'équipe StartGen Louvain-la-Neuve !</h2>
             <p class="form-intro">Tu es motivé(e) et tu veux vivre une aventure entrepreneuriale ? Remplis le formulaire ci-dessous pour postuler au sein de StartGen Louvain-la-Neuve.</p>
-            
+
             <form class="candidature-form" action="https://formsubmit.co/startgenlln@gmail.com" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_subject" value="Nouvelle candidature StartGen LLN">
                 <input type="hidden" name="_template" value="table">
+                <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
 
                 <div class="form-group-title">
-                    <span class="form-step-number">1</span>
+                    <span class="form-step-number" aria-hidden="true">1</span>
                     <h3>Informations personnelles</h3>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="nom">Nom <span class="required">*</span></label>
-                        <input type="text" id="nom" name="nom" placeholder="Ton nom" required>
+                        <label for="nom">Nom <span class="required" aria-hidden="true">*</span></label>
+                        <input type="text" id="nom" name="nom" placeholder="Ton nom" autocomplete="family-name" required>
                     </div>
                     <div class="form-group">
-                        <label for="prenom">Prénom <span class="required">*</span></label>
-                        <input type="text" id="prenom" name="prenom" placeholder="Ton prénom" required>
+                        <label for="prenom">Prénom <span class="required" aria-hidden="true">*</span></label>
+                        <input type="text" id="prenom" name="prenom" placeholder="Ton prénom" autocomplete="given-name" required>
                     </div>
                 </div>
-                <div class="form-group full-width">
-                    <label for="email">Adresse e-mail <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="ton.email@exemple.com" required>
+                <div class="form-group">
+                    <label for="email">Adresse e-mail <span class="required" aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="ton.email@exemple.com" autocomplete="email" inputmode="email" required>
                 </div>
 
-                <div class="form-group-title">
-                    <span class="form-step-number">2</span>
-                    <h3>Choisis ton département</h3>
-                </div>
-                <div class="department-grid">
-                    <label class="department-card">
-                        <input type="radio" name="departement" value="communication" required>
-                        <div class="department-content">
-                            <div class="department-icon"><i class="fas fa-bullhorn"></i></div>
-                            <span class="department-name">Communication</span>
-                            <span class="department-desc">Réseaux sociaux, contenu, image de marque</span>
-                        </div>
-                    </label>
-                    <label class="department-card">
-                        <input type="radio" name="departement" value="rh">
-                        <div class="department-content">
-                            <div class="department-icon"><i class="fas fa-users"></i></div>
-                            <span class="department-name">RH</span>
-                            <span class="department-desc">Recrutement, cohésion d'équipe, bien-être</span>
-                        </div>
-                    </label>
-                    <label class="department-card">
-                        <input type="radio" name="departement" value="financier">
-                        <div class="department-content">
-                            <div class="department-icon"><i class="fas fa-chart-line"></i></div>
-                            <span class="department-name">Financier</span>
-                            <span class="department-desc">Budget, trésorerie, sponsors</span>
-                        </div>
-                    </label>
-                    <label class="department-card">
-                        <input type="radio" name="departement" value="logistique">
-                        <div class="department-content">
-                            <div class="department-icon"><i class="fas fa-truck"></i></div>
-                            <span class="department-name">Logistique</span>
-                            <span class="department-desc">Organisation d'événements, matériel, lieux</span>
-                        </div>
-                    </label>
-                </div>
+                <fieldset class="form-fieldset">
+                    <legend class="form-group-title">
+                        <span class="form-step-number" aria-hidden="true">2</span>
+                        <span class="legend-text">Choisis ton département <span class="required" aria-hidden="true">*</span></span>
+                    </legend>
+                    <div class="department-grid">
+                        <label class="department-card">
+                            <input type="radio" name="departement" value="communication" required>
+                            <span class="department-content">
+                                <svg class="icon department-icon" aria-hidden="true"><use href="#i-bullhorn"/></svg>
+                                <span class="department-name">Communication</span>
+                                <span class="department-desc">Réseaux sociaux, contenu, image de marque</span>
+                            </span>
+                        </label>
+                        <label class="department-card">
+                            <input type="radio" name="departement" value="rh">
+                            <span class="department-content">
+                                <svg class="icon department-icon" aria-hidden="true"><use href="#i-users"/></svg>
+                                <span class="department-name">RH</span>
+                                <span class="department-desc">Recrutement, cohésion d'équipe, bien-être</span>
+                            </span>
+                        </label>
+                        <label class="department-card">
+                            <input type="radio" name="departement" value="financier">
+                            <span class="department-content">
+                                <svg class="icon department-icon" aria-hidden="true"><use href="#i-chart-line"/></svg>
+                                <span class="department-name">Financier</span>
+                                <span class="department-desc">Budget, trésorerie, sponsors</span>
+                            </span>
+                        </label>
+                        <label class="department-card">
+                            <input type="radio" name="departement" value="logistique">
+                            <span class="department-content">
+                                <svg class="icon department-icon" aria-hidden="true"><use href="#i-truck"/></svg>
+                                <span class="department-name">Logistique</span>
+                                <span class="department-desc">Organisation d'événements, matériel, lieux</span>
+                            </span>
+                        </label>
+                    </div>
+                </fieldset>
 
                 <div class="form-group-title">
-                    <span class="form-step-number">3</span>
-                    <h3>Motivation & CV</h3>
+                    <span class="form-step-number" aria-hidden="true">3</span>
+                    <h3>Motivation &amp; CV</h3>
                 </div>
-                <div class="form-group full-width">
-                    <label for="motivation">Lettre de motivation <span class="required">*</span></label>
+                <div class="form-group">
+                    <label for="motivation">Lettre de motivation <span class="required" aria-hidden="true">*</span></label>
                     <textarea id="motivation" name="motivation" rows="6" placeholder="Dis-nous pourquoi tu souhaites rejoindre StartGen LLN..." required></textarea>
                 </div>
-                <div class="form-group full-width">
-                    <label for="cv">CV (PDF uniquement) <span class="required">*</span></label>
+                <div class="form-group">
+                    <label for="cv">CV (PDF uniquement, 5 Mo max.) <span class="required" aria-hidden="true">*</span></label>
                     <div class="file-upload-wrapper">
-                        <input type="file" id="cv" name="cv" accept=".pdf" required>
-                        <div class="file-upload-custom">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <span>Glisse ton CV ici ou clique pour parcourir</span>
-                            <small>Format accepté : PDF — Max 5 Mo</small>
+                        <input type="file" id="cv" name="cv" accept=".pdf,application/pdf" required aria-describedby="cv-status">
+                        <div class="file-upload-custom" id="cv-status" aria-live="polite">
+                            <svg class="icon" aria-hidden="true"><use href="#i-cloud-arrow-up"/></svg>
+                            <span class="file-label">Touche ou clique ici pour choisir ton CV</span>
+                            <small>Tu peux aussi le glisser ici · PDF, 5 Mo max.</small>
                         </div>
                     </div>
+                    <p class="file-error" id="cv-error" role="alert" hidden></p>
                 </div>
+                <p class="form-note"><span class="required" aria-hidden="true">*</span> Champs obligatoires</p>
 
                 <button type="submit" class="btn btn-submit">
                     <span>Envoyer ma candidature</span>
-                    <i class="fas fa-paper-plane"></i>
+                    <svg class="icon" aria-hidden="true"><use href="#i-paper-plane"/></svg>
                 </button>
             </form>
         </div>
     </section>
 
+    </main>
+
     <!-- FOOTER -->
     <footer id="contact">
         <div class="footer-logo">
-            <img src="logo-startgen-lln.png" alt="Logo StartGen Louvain-la-Neuve footer" class="footer-logo-img">
+            <img src="img/logo-startgen-lln-160.webp" width="70" height="70" loading="lazy" decoding="async" alt="Logo StartGen Louvain-la-Neuve" class="footer-logo-img">
         </div>
-        <div class="footer-links">
-            <a href="#accueil" class="yellow-text">Accueil</a>
-            <a href="#actualites" class="yellow-text">Actualités</a>
-            <a href="#events" class="yellow-text">Events</a>
-            <a href="#intervenants" class="yellow-text">Intervenants</a>
-            <a href="#photos" class="yellow-text">Photos</a>
-            <a href="#agenda-reseau" class="yellow-text">Agenda Réseau</a>
-            <a href="#team" class="yellow-text">Team</a>
-            <a href="#contact" class="yellow-text">Contact</a>
-        </div>
+        <h2 class="footer-title">Contacte StartGen Louvain-la-Neuve</h2>
+        <p class="footer-contact">
+            <a href="mailto:startgenlln@gmail.com">startgenlln@gmail.com</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://www.instagram.com/startgen_lln/" target="_blank" rel="noopener">Instagram @startgen_lln</a>
+        </p>
+        <nav class="footer-links" aria-label="Plan du site">
+            <a href="#accueil">Accueil</a>
+            <a href="#events">Événements</a>
+            <a href="#actualites">Actualités</a>
+            <a href="#team">Qui sommes-nous ?</a>
+            <a href="#intervenants">Intervenants</a>
+            <a href="#photos">Photos</a>
+            <a href="#agenda-reseau">Agenda réseau</a>
+            <a href="#avis">Donner mon avis</a>
+            <a href="#candidature">Rejoindre l'équipe</a>
+        </nav>
         <div class="footer-socials">
-            <a href="https://linktr.ee/startgenlln?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank" class="social-icon"><i class="fas fa-tree"></i></a>
-            <a href="mailto:startgenlln@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.instagram.com/startgen_lln/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram de StartGen LLN"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+            <a href="https://linktr.ee/startgenlln" target="_blank" rel="noopener" class="social-icon" aria-label="Tous nos liens (Linktree)"><svg class="icon" aria-hidden="true"><use href="#i-tree"/></svg></a>
+            <a href="mailto:startgenlln@gmail.com" class="social-icon" aria-label="Envoyer un e-mail à StartGen LLN"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg></a>
         </div>
-        <p class="footer-copy">&copy; 2025 StartGen Louvain-la-Neuve — Une initiative des LJE</p>
+        <p class="footer-copy">&copy; 2026 StartGen Louvain-la-Neuve — Une initiative des LJE (Les Jeunes Entreprises)</p>
     </footer>
 
-    <!-- SCRIPT CARROUSEL -->
     <script>
-        document.querySelectorAll('.partner-carousel').forEach(initPartnerCarousel);
-
-        function initPartnerCarousel(carousel) {
-            const slides = carousel.querySelectorAll('.partner-slide');
-            const dots = carousel.querySelectorAll('.dot');
-            const progressBar = carousel.querySelector('.carousel-progress-bar');
-            const prevBtn = carousel.querySelector('.carousel-prev');
-            const nextBtn = carousel.querySelector('.carousel-next');
-            const totalSlides = slides.length;
-            const intervalTime = 5000;
-            let currentSlide = 0;
-            let autoPlay;
-
-            function goToSlide(index) {
-                slides.forEach(s => s.classList.remove('active'));
-                dots.forEach(d => d.classList.remove('active'));
-                currentSlide = (index + totalSlides) % totalSlides;
-                slides[currentSlide].classList.add('active');
-                if (dots[currentSlide]) dots[currentSlide].classList.add('active');
-                resetProgress();
-            }
-
-            function nextSlide() { goToSlide(currentSlide + 1); }
-            function prevSlide() { goToSlide(currentSlide - 1); }
-
-            function resetProgress() {
-                if (!progressBar) return;
-                progressBar.style.transition = 'none';
-                progressBar.style.width = '0%';
-                progressBar.offsetHeight;
-                progressBar.style.transition = `width ${intervalTime}ms linear`;
-                progressBar.style.width = '100%';
-            }
-
-            function startAutoPlay() { resetProgress(); autoPlay = setInterval(nextSlide, intervalTime); }
-            function stopAutoPlay() { clearInterval(autoPlay); }
-            function restartAutoPlay() { stopAutoPlay(); startAutoPlay(); }
-
-            if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); restartAutoPlay(); });
-            if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); restartAutoPlay(); });
-            dots.forEach((dot, i) => dot.addEventListener('click', () => { goToSlide(i); restartAutoPlay(); }));
-
-            carousel.addEventListener('mouseenter', stopAutoPlay);
-            carousel.addEventListener('mouseleave', restartAutoPlay);
-
-            if (totalSlides > 1) startAutoPlay();
+    (function () {
+        /* ---------- Menu mobile ---------- */
+        var header = document.querySelector('.navbar');
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.getElementById('menu-principal');
+        function setMenu(open) {
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            header.classList.toggle('menu-open', open);
         }
-    </script>
+        toggle.addEventListener('click', function () { setMenu(toggle.getAttribute('aria-expanded') !== 'true'); });
+        menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && header.classList.contains('menu-open')) { setMenu(false); toggle.focus(); } });
 
-    <!-- SCRIPT UPLOAD CV -->
-    <script>
-        const fileInput = document.getElementById('cv');
-        const fileUploadCustom = document.querySelector('.file-upload-custom');
-
-        fileInput.addEventListener('change', function() {
-            if (fileInput.files.length > 0) {
-                const fileName = fileInput.files[0].name;
-                const fileSize = (fileInput.files[0].size / 1024 / 1024).toFixed(2);
-                fileUploadCustom.innerHTML = `
-                    <i class="fas fa-check-circle"></i>
-                    <span class="file-name">${fileName}</span>
-                    <small>Taille : ${fileSize} Mo</small>
-                    <span class="file-change">Cliquer pour changer de fichier</span>
-                `;
-                fileUploadCustom.classList.add('file-selected');
-            } else {
-                fileUploadCustom.innerHTML = `
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <span>Glisse ton CV ici ou clique pour parcourir</span>
-                    <small>Format accepté : PDF — Max 5 Mo</small>
-                `;
-                fileUploadCustom.classList.remove('file-selected');
-            }
+        /* ---------- Archivage automatique des dates passées ----------
+           Les cartes avec data-date="AAAA-MM-JJ" passent dans « passés » le lendemain de l'événement. */
+        var today = new Date(); today.setHours(0, 0, 0, 0);
+        function isPast(el) { var d = new Date(el.getAttribute('data-date') + 'T23:59:59'); return d < today; }
+        document.querySelectorAll('.lln-upcoming [data-date]').forEach(function (card) {
+            if (isPast(card)) { card.classList.add('is-past'); document.querySelector('.lln-past').prepend(card); }
         });
+        var pastList = document.querySelector('.agenda-past-list');
+        Array.prototype.slice.call(document.querySelectorAll('.agenda-upcoming [data-date]')).reverse().forEach(function (card) {
+            if (isPast(card)) { card.classList.add('is-past'); pastList.prepend(card); }
+        });
+
+        /* ---------- Carrousels partenaires ---------- */
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.querySelectorAll('.partner-carousel').forEach(function (carousel) {
+            var slides = carousel.querySelectorAll('.partner-slide');
+            var dotsBox = carousel.querySelector('.carousel-dots');
+            var bar = carousel.querySelector('.carousel-progress-bar');
+            var total = slides.length, current = 0, timer = null, interval = 5000;
+            var dots = [];
+            slides.forEach(function (slide, i) {
+                slide.setAttribute('role', 'group');
+                slide.setAttribute('aria-roledescription', 'diapositive');
+                slide.setAttribute('aria-label', (i + 1) + ' sur ' + total);
+                var b = document.createElement('button');
+                b.type = 'button'; b.className = 'dot';
+                b.setAttribute('aria-label', 'Afficher ' + slide.querySelector('.partner-name').textContent);
+                b.addEventListener('click', function () { go(i); restart(); });
+                dotsBox.appendChild(b); dots.push(b);
+            });
+            function go(i) {
+                current = (i + total) % total;
+                slides.forEach(function (s, k) { s.classList.toggle('active', k === current); s.setAttribute('aria-hidden', k === current ? 'false' : 'true'); });
+                dots.forEach(function (d, k) { d.classList.toggle('active', k === current); d.setAttribute('aria-current', k === current ? 'true' : 'false'); });
+                progress();
+            }
+            function progress() {
+                if (!bar || reduceMotion) return;
+                bar.style.transition = 'none'; bar.style.width = '0%';
+                void bar.offsetWidth;
+                bar.style.transition = 'width ' + interval + 'ms linear'; bar.style.width = '100%';
+            }
+            function start() { if (reduceMotion || total < 2) return; stop(); progress(); timer = setInterval(function () { go(current + 1); }, interval); }
+            function stop() { clearInterval(timer); timer = null; if (bar) { bar.style.transition = 'none'; bar.style.width = '0%'; } }
+            function restart() { stop(); start(); }
+            carousel.querySelector('.carousel-next').addEventListener('click', function () { go(current + 1); restart(); });
+            carousel.querySelector('.carousel-prev').addEventListener('click', function () { go(current - 1); restart(); });
+            carousel.addEventListener('mouseenter', stop);
+            carousel.addEventListener('mouseleave', start);
+            carousel.addEventListener('focusin', stop);
+            carousel.addEventListener('focusout', function (e) { if (!carousel.contains(e.relatedTarget)) start(); });
+            go(0);
+            // Ne défile que lorsqu'il est visible à l'écran
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(function (entries) { entries[0].isIntersecting ? start() : stop(); }).observe(carousel);
+            } else { start(); }
+        });
+
+        /* ---------- Upload du CV ---------- */
+        var fileInput = document.getElementById('cv');
+        var box = document.getElementById('cv-status');
+        var err = document.getElementById('cv-error');
+        var MAX = 5 * 1024 * 1024;
+        var defaultHTML = box.innerHTML;
+        function showError(msg) {
+            fileInput.setCustomValidity(msg);
+            err.textContent = msg; err.hidden = !msg;
+            box.classList.toggle('file-invalid', !!msg);
+        }
+        fileInput.addEventListener('change', function () {
+            var f = fileInput.files[0];
+            if (!f) { box.innerHTML = defaultHTML; box.classList.remove('file-selected'); showError(''); return; }
+            var isPdf = /\.pdf$/i.test(f.name) || f.type === 'application/pdf';
+            if (!isPdf) showError('Ton CV doit être un fichier PDF.');
+            else if (f.size > MAX) showError('Ton CV fait ' + (f.size / 1048576).toFixed(1) + ' Mo : la limite est de 5 Mo.');
+            else showError('');
+            box.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-circle-check"/></svg>' +
+                '<span class="file-name"></span><small></small><span class="file-change">Toucher pour changer de fichier</span>';
+            box.querySelector('.file-name').textContent = f.name;
+            box.querySelector('small').textContent = 'Taille : ' + (f.size / 1048576).toFixed(2) + ' Mo';
+            box.classList.add('file-selected');
+        });
+        ['dragenter', 'dragover'].forEach(function (t) { fileInput.addEventListener(t, function () { box.classList.add('is-dragover'); }); });
+        ['dragleave', 'drop'].forEach(function (t) { fileInput.addEventListener(t, function () { box.classList.remove('is-dragover'); }); });
+    })();
     </script>
 </body>
 </html>
