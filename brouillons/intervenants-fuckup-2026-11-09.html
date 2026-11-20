@@ -1,0 +1,82 @@
+<!--
+  BROUILLON — Intervenants de la Fuckup Night du 9 novembre 2026
+  Retiré du site le 21/11/2026 en attendant leurs photos et la validation des infos.
+  Ce dossier « brouillons/ » n'est PAS publié (seuls les fichiers listés dans scripts/build.js le sont).
+  Les styles nécessaires (.talk-card, .intervenant-initiales, .intervenants-subtitle…) sont restés dans style.css.
+
+  POUR REMETTRE EN LIGNE :
+  1. Section « INTERVENANTS » de index.html : coller le BLOC 1 juste après le paragraphe
+     <p class="section-intro">…</p>, puis juste avant <ul class="intervenants-grid"> ajouter :
+         <h3 class="intervenants-subtitle">Nos précédents intervenants</h3>
+     et, dans cette liste, remplacer les <h3>…</h3> des noms par <h4>…</h4>.
+  2. Carte « Fuckup Night Louvain-la-Neuve » (section Événements passés) : coller le BLOC 2
+     juste après le paragraphe qui se termine par « une bonne dose d'authenticité.</p> ».
+  3. Données structurées (<script type="application/ld+json"> en haut de page), événement
+     « Fuckup Night Louvain-la-Neuve » : coller le BLOC 3 juste après la ligne "organizer".
+  4. Photos : remplacer <span class="intervenant-img intervenant-initiales" aria-hidden="true">XX</span> par
+     <img src="img/portrait-prenom-nom-160.webp" srcset="img/portrait-prenom-nom-160.webp 1x, img/portrait-prenom-nom-240.webp 2x"
+          width="80" height="80" loading="lazy" decoding="async" alt="Portrait de Prénom Nom" class="intervenant-img">
+     (images carrées 160 et 240 px en WebP, comme les autres portraits du dossier img/).
+-->
+
+<!-- ===== BLOC 1 : section Intervenants ===== -->
+            <h3 class="intervenants-subtitle" id="intervenants-fuckup">Fuckup Night · 9 novembre 2026</h3>
+            <p class="intervenants-subintro">Quatre entrepreneurs sont montés sur scène pour raconter, sans filtre, un échec qui les a fait grandir.</p>
+            <ul class="intervenants-grid talks-grid">
+                <li class="intervenant-card talk-card">
+                    <span class="intervenant-img intervenant-initiales" aria-hidden="true">CV</span>
+                    <h4>Charles Vosters</h4>
+                    <p class="talk-role">Entrepreneur</p>
+                    <p class="talk-title">«&nbsp;Le dilemme amitié vs business : le coût d’une mauvaise embauche&nbsp;»</p>
+                    <details class="talk-details">
+                        <summary>Lire le résumé de son intervention</summary>
+                        <p><strong>La problématique&nbsp;:</strong> Recruter un ami proche pour combler un vide dans l’équipe, en se reposant uniquement sur l’affect et la confiance aveugle, sans clarifier la réalité du terrain, l’engagement et les sacrifices nécessaires.</p>
+                        <p>Quand une place se libère, l’évidence semble parfois être sous nos yeux : pourquoi ne pas s’associer avec un bon ami ? Charles a fait ce choix en pensant que la complicité suffisait à porter un projet ambitieux. Mais entrevoir une vision commune ne garantit pas d’être prêt pour la réalité du terrain. Quand la réalité des affaires rattrape le quotidien, les conséquences touchent à la fois l’entreprise et les liens humains. Charles monte sur scène pour aborder avec sincérité la frontière délicate entre amitié et business, et prouver qu’une vraie relation professionnelle commence toujours par oser poser les questions difficiles.</p>
+                    </details>
+                </li>
+                <li class="intervenant-card talk-card">
+                    <span class="intervenant-img intervenant-initiales" aria-hidden="true">AD</span>
+                    <h4>Alicia Dekoninck</h4>
+                    <p class="talk-role">À la tête d’Atelier Design depuis 17 ans</p>
+                    <p class="talk-title">«&nbsp;L’audace du grand saut : bâtir une référence sans mode d’emploi&nbsp;»</p>
+                    <details class="talk-details">
+                        <summary>Lire le résumé de son intervention</summary>
+                        <p><strong>La problématique&nbsp;:</strong> Se lancer à 25 ans sans expérience ni filet de sécurité dans la gestion d’entreprise, et traverser les turbulences d’une agence en pleine croissance.</p>
+                        <p>Se lancer à 25 ans avec une seule année d’expérience et aucune certitude sur la gestion d’entreprise : folie ou audace ? Pour Alicia, c’était le début d’une aventure qui dure depuis 17 ans à la tête d’Atelier Design, aux côtés de clients majeurs comme la Croix-Rouge ou Les Tartes de Françoise. Mais derrière la réussite établie se cachent des doutes, des virages manqués et des remises en question permanentes. Alicia vient démontrer que l’imperfection fait partie du voyage et qu’il vaut mille fois mieux oser se planter que de rester spectateur de ses propres idées.</p>
+                    </details>
+                </li>
+                <li class="intervenant-card talk-card">
+                    <span class="intervenant-img intervenant-initiales" aria-hidden="true">JC</span>
+                    <h4>Julie Castin</h4>
+                    <p class="talk-role">Professeure, maman et entrepreneure</p>
+                    <p class="talk-title">«&nbsp;Le piège du «&nbsp;super-héros&nbsp;» : charge mentale et limites du multitâche&nbsp;»</p>
+                    <details class="talk-details">
+                        <summary>Lire le résumé de son intervention</summary>
+                        <p><strong>La problématique&nbsp;:</strong> Vouloir réussir sur tous les fronts en même temps (enseignement, entrepreneuriat, vie de famille) au risque d’épuiser son énergie et de frôler la surcharge.</p>
+                        <p>Professeure, maman de deux enfants et entrepreneure : sur le papier, la promesse de tout mener de front fait rêver. Dans la pratique, la surcharge mentale et la dispersion guettent à chaque virage. Julie a vécu ce moment de bascule où vouloir tout accomplir en même temps revient à s’oublier soi-même. Avec franchise et sans filtre, elle vient partager la réalité du statut d’indépendant complémentaire et ce déclic salvateur : apprendre à poser ses limites, redéfinir ses priorités et comprendre que dire non à certaines choses, c’est avant tout se dire oui à soi.</p>
+                    </details>
+                </li>
+                <li class="intervenant-card talk-card">
+                    <span class="intervenant-img intervenant-initiales" aria-hidden="true">PD</span>
+                    <h4>Pierre Derval</h4>
+                    <p class="talk-role">Entrepreneur</p>
+                    <p class="talk-title">«&nbsp;L’illusion du chèque : les pièges invisibles d’une levée de fonds&nbsp;»</p>
+                    <details class="talk-details">
+                        <summary>Lire le résumé de son intervention</summary>
+                        <p><strong>La problématique&nbsp;:</strong> Signer une term sheet trop vite sous l’euphorie de l’argent disponible, sans mesurer les impacts juridiques et stratégiques des clauses contraignantes.</p>
+                        <p>Dans l’écosystème entrepreneurial, lever des fonds est souvent perçu comme la consécration ultime. Mais que se passe-t-il quand l’urgence et l’enthousiasme masquent les petits caractères d’un contrat ? Face à une proposition alléchante, Pierre a validé un accord dont les clauses ont rapidement révélé de lourdes conséquences. Avec lucidité, il partage les coulisses d’une négociation financière, les pièges à éviter face aux investisseurs et cette règle d’or pour tout créateur : le vrai pouvoir ne réside pas dans la rapidité à signer, mais dans la lucidité à savoir temporiser.</p>
+                    </details>
+                </li>
+            </ul>
+
+<!-- ===== BLOC 2 : carte de l'événement ===== -->
+                    <p><strong>Sur scène&nbsp;:</strong> Charles Vosters, Alicia Dekoninck, Julie Castin et Pierre Derval. <a href="#intervenants-fuckup" class="text-link">Découvrir leurs histoires</a></p>
+
+<!-- ===== BLOC 3 : données structurées (JSON) =====
+                "performer": [
+                    { "@type": "Person", "name": "Charles Vosters" },
+                    { "@type": "Person", "name": "Alicia Dekoninck" },
+                    { "@type": "Person", "name": "Julie Castin" },
+                    { "@type": "Person", "name": "Pierre Derval" }
+                ],
+-->
