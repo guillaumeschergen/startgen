@@ -1,5 +1,6 @@
 /*
  * GET /api/instagram-followers → { "followers": 321, "updatedAt": "…", "stale": false }
+ *                                 ou { "followers": null, "available": false } si indisponible
  *
  * Renvoie le nombre d'abonnés du compte Instagram @startgen_lln via l'API officielle
  * d'Instagram. Le jeton reste côté serveur : variable d'environnement Netlify
@@ -68,7 +69,7 @@ const json = (body, status, cdnCache) => new Response(JSON.stringify(body), {
     status,
     headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        'Cache-Control': status === 200 ? 'public, max-age=300' : 'no-store',
+        'Cache-Control': 'public, max-age=120',
         'Netlify-CDN-Cache-Control': cdnCache,
         'X-Content-Type-Options': 'nosniff',
     },
@@ -78,7 +79,10 @@ const fresh = (r, stale = false) => json(
     200,
     'public, durable, s-maxage=900, stale-while-revalidate=3600',
 );
-const unavailable = (reason) => json({ error: reason }, 503, 'public, durable, s-maxage=120');
+// Réponse « indisponible » en 200 (et non 503) : Netlify ne met pas les erreurs en cache.
+// Ainsi, même sans jeton ou pendant une panne, la fonction n'est exécutée qu'une fois
+// toutes les 2 min pour tous les visiteurs, au lieu d'une fois par visite.
+const unavailable = (reason) => json({ followers: null, available: false, error: reason }, 200, 'public, durable, s-maxage=120');
 
 export default async (req) => {
     if (req.method !== 'GET' && req.method !== 'HEAD') {
