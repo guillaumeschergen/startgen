@@ -1,0 +1,5 @@
+# Configuration du déploiement Netlify (https://startgenlln.netlify.app)
+[build]
+  publish = "."
+  # Intègre style.css dans index.html sur la copie déployée (voir scripts/inline-css.js)
+  command = "node scripts/inline-css.js"

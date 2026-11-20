@@ -833,7 +833,7 @@ html:not(.js) .partner-slide:first-child { opacity: 1; visibility: visible; tran
     height: 4px;
     background: #e0e0e0;
 }
-.carousel-progress-bar { height: 100%; width: 0; background: var(--yellow); }
+.carousel-progress-bar { height: 100%; width: 100%; background: var(--yellow); transform: scaleX(0); transform-origin: left center; }
 
 .carousel-arrow {
     position: absolute;

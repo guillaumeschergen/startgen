@@ -7,13 +7,13 @@
     <meta name="description" content="Événements d'entrepreneuriat étudiant à Louvain-la-Neuve : Fuckup Night, talks d'entrepreneurs, networking. Agenda, photos et contact de StartGen LLN.">
     <meta name="theme-color" content="#1E1E1E">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://guillaumeschergen.github.io/startgen/">
+    <link rel="canonical" href="https://startgenlln.netlify.app/">
     <link rel="sitemap" type="application/xml" href="sitemap.xml">
 
     <!-- Réseaux sociaux -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://guillaumeschergen.github.io/startgen/">
-    <meta property="og:image" content="https://guillaumeschergen.github.io/startgen/img/og-startgen-lln.jpg">
+    <meta property="og:url" content="https://startgenlln.netlify.app/">
+    <meta property="og:image" content="https://startgenlln.netlify.app/img/og-startgen-lln.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Logo StartGen Louvain-la-Neuve">
@@ -37,17 +37,17 @@
         "@graph": [
             {
                 "@type": "WebSite",
-                "@id": "https://guillaumeschergen.github.io/startgen/#site",
-                "url": "https://guillaumeschergen.github.io/startgen/",
+                "@id": "https://startgenlln.netlify.app/#site",
+                "url": "https://startgenlln.netlify.app/",
                 "name": "StartGen Louvain-la-Neuve",
                 "inLanguage": "fr-BE",
-                "publisher": { "@id": "https://guillaumeschergen.github.io/startgen/#organisation" }
+                "publisher": { "@id": "https://startgenlln.netlify.app/#organisation" }
             },
             {
                 "@type": "Organization",
-                "@id": "https://guillaumeschergen.github.io/startgen/#organisation",
-                "url": "https://guillaumeschergen.github.io/startgen/",
-                "logo": "https://guillaumeschergen.github.io/startgen/img/logo-startgen-lln-560.webp",
+                "@id": "https://startgenlln.netlify.app/#organisation",
+                "url": "https://startgenlln.netlify.app/",
+                "logo": "https://startgenlln.netlify.app/img/logo-startgen-lln-560.webp",
                 "name": "StartGen Louvain-la-Neuve",
                 "alternateName": "StartGen LLN",
                 "description": "Antenne étudiante de StartGen qui organise des événements d'entrepreneuriat à Louvain-la-Neuve.",
@@ -72,7 +72,7 @@
                     "name": "Auditoire Agora 1",
                     "address": { "@type": "PostalAddress", "addressLocality": "Louvain-la-Neuve", "postalCode": "1348", "addressCountry": "BE" }
                 },
-                "organizer": { "@id": "https://guillaumeschergen.github.io/startgen/#organisation" },
+                "organizer": { "@id": "https://startgenlln.netlify.app/#organisation" },
                 "offers": { "@type": "Offer", "url": "https://www.tickettailor.com/events/fuckupnightsbrussels/2479124" }
             },
             {
@@ -89,7 +89,7 @@
                     "name": "Brasse-Temps",
                     "address": { "@type": "PostalAddress", "addressLocality": "Louvain-la-Neuve", "addressCountry": "BE" }
                 },
-                "organizer": { "@id": "https://guillaumeschergen.github.io/startgen/#organisation" }
+                "organizer": { "@id": "https://startgenlln.netlify.app/#organisation" }
             }
         ]
     }
@@ -808,16 +808,17 @@
                 current = (i + total) % total;
                 slides.forEach(function (s, k) { s.classList.toggle('active', k === current); s.setAttribute('aria-hidden', k === current ? 'false' : 'true'); });
                 dots.forEach(function (d, k) { d.classList.toggle('active', k === current); d.setAttribute('aria-current', k === current ? 'true' : 'false'); });
-                progress();
+                if (timer) progress();
             }
+            // Barre de progression animée par le compositeur (transform), sans relecture de la mise en page
+            var anim = null;
             function progress() {
-                if (!bar || reduceMotion) return;
-                bar.style.transition = 'none'; bar.style.width = '0%';
-                void bar.offsetWidth;
-                bar.style.transition = 'width ' + interval + 'ms linear'; bar.style.width = '100%';
+                if (!bar || reduceMotion || !bar.animate) return;
+                if (anim) anim.cancel();
+                anim = bar.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: interval, easing: 'linear' });
             }
-            function start() { if (reduceMotion || total < 2) return; stop(); progress(); timer = setInterval(function () { go(current + 1); }, interval); }
-            function stop() { clearInterval(timer); timer = null; if (bar) { bar.style.transition = 'none'; bar.style.width = '0%'; } }
+            function start() { if (reduceMotion || total < 2) return; stop(); timer = setInterval(function () { go(current + 1); }, interval); progress(); }
+            function stop() { clearInterval(timer); timer = null; if (anim) { anim.cancel(); anim = null; } }
             function restart() { stop(); start(); }
             carousel.querySelector('.carousel-next').addEventListener('click', function () { go(current + 1); restart(); });
             carousel.querySelector('.carousel-prev').addEventListener('click', function () { go(current - 1); restart(); });
